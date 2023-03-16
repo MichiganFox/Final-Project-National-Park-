@@ -11,7 +11,7 @@ export class ParksService {
   constructor(private http: HttpClient) { }
 
   getParks():Observable<Park[]>{
-    return this.http.get<Park[]>(this.apiUrl);
+    return this.http.get<Park[]>("");
 
 }
 }
