@@ -7,7 +7,7 @@ import { Park } from '../Model/park';
   providedIn: 'root'
 })
 export class ParksService {
-  apiUrl = 'https://developer.nps.gov/api/v1/parks?api_key=nqWua9Cniro1uf47bUW2qy88NQaOc2GcyHTqbZ0D'
+ 
   constructor(private http: HttpClient) { }
 
   getParks():Observable<Park[]>{
@@ -15,3 +15,4 @@ export class ParksService {
 
 }
 }
+ 
