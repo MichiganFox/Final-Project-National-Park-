@@ -35,16 +35,46 @@ namespace NationalParkFinder.Controllers
             return results;
         }
 
+        [HttpPost("newEntry")]
+        public AdventureLog addEntry(string _parkId, string _details)
+        {
+            AdventureLog newEntry = new AdventureLog()
+            {
+                ParkId = _parkId,
+                Details = _details
+            };
+            dbContext.AdventureLogs.Add(newEntry);
+            dbContext.SaveChanges();
+
+            return newEntry;
 
 
+        }
 
-        //[HttpPost("addEntry")]
-        //public List<UserAdventureLog> addEntry()
-        //{
+        [HttpPut("changeEntry")]
+        public AdventureLog changeEntry(int _id, string _details)
+        {
+            AdventureLog a = dbContext.AdventureLogs.FirstOrDefault(a => a.Id == _id);
+            a.Details = _details;
 
-        //}
+            dbContext.AdventureLogs.Update(a);
+            dbContext.SaveChanges();
 
+            return a;
 
+        }
+
+        [HttpDelete("deleteItem")]
+        public AdventureLog deleteItem(int _id)
+        {
+            AdventureLog a = dbContext.AdventureLogs.FirstOrDefault(a => a.Id == _id);
+
+            dbContext.AdventureLogs.Remove(a);
+            dbContext.SaveChanges();
+
+            return a;
+        }
     }
 }
+ 
 
