@@ -9,7 +9,7 @@ namespace NationalParkFinder.Controllers
     public class UserProfileController : ControllerBase
     {
         NpsContext dbContext = new NpsContext();
-        [HttpGet("userProfile")]
-        private UserProfile
+        //[HttpGet("userProfile")]
+        //private UserProfile
     }
 }
