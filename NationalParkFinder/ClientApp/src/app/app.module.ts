@@ -10,6 +10,18 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ParkFinderComponent } from './Component/park-finder/park-finder.component';
+import { ParkFinderFormComponent } from './Component/park-finder-form/park-finder-form.component';
+import { ProfilePageComponent } from './Component/profile-page/profile-page.component';
+import { AllAdventuresComponent } from './Component/all-adventures/all-adventures.component';
+import { SingleAdventureComponent } from './Component/single-adventure/single-adventure.component';
+import { FavoritesComponent } from './Component/favorites/favorites.component';
+import { SingleFavoriteComponent } from './Component/single-favorite/single-favorite.component';
+import { AlertsComponent } from './Component/alerts/alerts.component';
+import { SingleAlertComponent } from './Component/single-alert/single-alert.component';
+import { BadgesComponent } from './Component/badges/badges.component';
+import { SingleBadgesComponent } from './Component/single-badges/single-badges.component';
+import { ProfileCreatorComponent } from './Component/profile-creator/profile-creator.component';
+import { ProfileFormComponent } from './Component/profile-form/profile-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +30,19 @@ import { ParkFinderComponent } from './Component/park-finder/park-finder.compone
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    ParkFinderComponent
+    ParkFinderComponent,
+    ParkFinderFormComponent,
+    ProfilePageComponent,
+    AllAdventuresComponent,
+    SingleAdventureComponent,
+    FavoritesComponent,
+    SingleFavoriteComponent,
+    AlertsComponent,
+    SingleAlertComponent,
+    BadgesComponent,
+    SingleBadgesComponent,
+    ProfileCreatorComponent,
+    ProfileFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -17,6 +17,7 @@ namespace NationalParkFinder.Controllers
         [HttpGet("getParksByName")]
         public List<Park> GetParksByName(string _parkName)
         {
+            
             List<Park> allParks = ParkDAL.GetPark();
             List<Park> resultParks= new List<Park>();
             foreach(Park park in allParks)
