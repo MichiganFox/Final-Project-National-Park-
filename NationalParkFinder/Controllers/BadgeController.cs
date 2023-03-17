@@ -25,5 +25,9 @@ namespace NationalParkFinder.Controllers
                 BadgeId = _badgeId,
                 UserId = _userId
             };
+            dbContext.UserBadges.Add(awarded);
+            dbContext.SaveChanges();
+            return awarded;
         }
+    }
 }
