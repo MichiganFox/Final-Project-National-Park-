@@ -32,24 +32,7 @@ namespace NationalParkFinder.Controllers
             return resultParks;
             /*allParks.Where(park => park.data.Where(p => p.fullName.Contains(_parkName));*/
         }
-        [HttpGet("getParksByName")]
-        public List<Park> GetParksByName(string _parkName)
-        {
-            List<Park> allParks = ParkDAL.GetPark();
-            List<Park> resultParks = new List<Park>();
-            foreach (Park park in allParks)
-            {
-                foreach (Datum d in park.data)
-                {
-                    if (d.fullName.Contains(_parkName))
-                    {
-                        resultParks.Add(park);
-                    }
-                }
-            }
-            return resultParks;
-            /*allParks.Where(park => park.data.Where(p => p.fullName.Contains(_parkName));*/
-        }
+        
         [HttpGet("getParksByActivity")]
         public List<Park> GetParksByActivities(string _allResults) { 
             string[] results= _allResults.Split(',');

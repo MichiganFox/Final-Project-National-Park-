@@ -29,8 +29,8 @@ public partial class NpsContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer($"Server={Secret.Server}; Initial Catalog=NPS; User ID={Secret.Username}; Password={Secret.Password}; TrustServerCertificate=true;");
-  
+        => optionsBuilder.UseSqlServer("Server=nps4567890.database.windows.net; Initial Catalog=NPS; User ID=NationalParkProject; Password=NationalP@rk; TrustServerCertificate=true;");
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<AdventureLog>(entity =>
@@ -64,18 +64,20 @@ public partial class NpsContext : DbContext
 
         modelBuilder.Entity<UserAdventureLog>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__UserAdve__3214EC0768D2BC63");
+            entity.HasKey(e => e.Id).HasName("PK__UserAdve__3214EC078D1298A9");
 
             entity.ToTable("UserAdventureLog");
 
-            entity.Property(e => e.AdventureId)
-                .HasMaxLength(100)
-                .HasColumnName("AdventureID");
+            entity.Property(e => e.AdventureId).HasColumnName("AdventureID");
             entity.Property(e => e.UserId).HasColumnName("UserID");
+
+            entity.HasOne(d => d.Adventure).WithMany(p => p.UserAdventureLogs)
+                .HasForeignKey(d => d.AdventureId)
+                .HasConstraintName("FK__UserAdven__Adven__7D439ABD");
 
             entity.HasOne(d => d.User).WithMany(p => p.UserAdventureLogs)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__UserAdven__UserI__71D1E811");
+                .HasConstraintName("FK__UserAdven__UserI__7E37BEF6");
         });
 
         modelBuilder.Entity<UserBadge>(entity =>

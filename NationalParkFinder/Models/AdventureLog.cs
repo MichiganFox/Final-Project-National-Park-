@@ -10,4 +10,6 @@ public partial class AdventureLog
     public string? ParkId { get; set; }
 
     public string? Details { get; set; }
+
+    public virtual ICollection<UserAdventureLog> UserAdventureLogs { get; } = new List<UserAdventureLog>();
 }
