@@ -10,26 +10,26 @@ namespace NationalParkFinder.Controllers
     public class ParkController : ControllerBase
     {
         [HttpGet("getParks")]
-        public List<Park> GetParks()
+        public Park GetParks()
         {
             return ParkDAL.GetPark();
         }
         [HttpGet("getParksByName")]
-        public List<Park> GetParksByName(string _parkName)
+        public Park GetParksByName(string _parkName)
         {
+
+            Park allParks = ParkDAL.GetPark();
+            Park resultParks = new Park();
             
-            List<Park> allParks = ParkDAL.GetPark();
-            List<Park> resultParks= new List<Park>();
-            foreach(Park park in allParks)
-            {
-                foreach(Datum d in park.data)
+            
+                foreach(Datum d in allParks.data)
                 {
                     if (d.fullName.Contains(_parkName))
                         {
-                        resultParks.Add(park);
+                        //resultParks.Add(park);
                     }
                 }
-            }
+            
             return resultParks;
             /*allParks.Where(park => park.data.Where(p => p.fullName.Contains(_parkName));*/
         }
@@ -39,14 +39,14 @@ namespace NationalParkFinder.Controllers
             string[] results= _allResults.Split(',');
             
             
-            List<Park> allParks = ParkDAL.GetPark();
+            //List<Park> allParks = ParkDAL.GetPark();
             List<Park> resultParks = new List<Park>();
             foreach(string r in results)
             {
-                List<Park> parks = GetParksByActivity(r, allParks);
-                foreach(Park park in parks)
+                //List<Park> parks = GetParksByActivity(r, allParks);
+               // foreach(Park park in parks)
                 {
-                    resultParks.Add(park);
+                    //resultParks.Add(park);
                 }
 
             }
