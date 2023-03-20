@@ -22,6 +22,8 @@ import { BadgesComponent } from './Component/badges/badges.component';
 import { SingleBadgesComponent } from './Component/single-badges/single-badges.component';
 import { ProfileCreatorComponent } from './Component/profile-creator/profile-creator.component';
 import { ProfileFormComponent } from './Component/profile-form/profile-form.component';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { Secret } from './secret';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { ProfileFormComponent } from './Component/profile-form/profile-form.comp
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
-    FormsModule,
+    FormsModule, 
+    SocialLoginModule, 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -55,7 +58,23 @@ import { ProfileFormComponent } from './Component/profile-form/profile-form.comp
       {path: 'park', component: ParkFinderComponent},
     ])
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+            Secret.clientId 
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
