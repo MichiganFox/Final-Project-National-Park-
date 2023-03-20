@@ -8,7 +8,7 @@ export class AdventureLogService {
 
   constructor(@Inject('Base_URL') private baseUrl:string, private http:HttpClient ) { }
 
-  GetAdventureLogs(newFavorite:Favorites):Observable<Favorites>{
+  /* GetAdventureLogs(newFavorite:Favorites):Observable<Favorites>{
     return this.http.post<Favorites>(`${this.baseUrl}api/favorite/addFavorite?_userQID=${newFavorite.qid}&_userName=${newFavorite.userId}`,{});
-  }
+  } */
 }
