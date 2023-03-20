@@ -12,6 +12,7 @@ export class ParkFinderComponent {
     result:Park[] = {} as Park[];
   constructor(private parkService:ParksService){}
 
+  
   ngOnInit(){
 
     this.parkService.getParks().subscribe((response:Park[]) => {
