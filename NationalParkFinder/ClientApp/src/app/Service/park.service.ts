@@ -9,7 +9,7 @@ import { Park } from '../Model/park';
 })
 export class ParkService {
 
-  constructor(@Inject('Base_URL') private baseUrl:string, private http:HttpClient ) { }
+  constructor(@Inject('BASE_URL') private baseUrl:string, private http:HttpClient ) { }
 
   getParks():Observable<Park[]>{
     return this.http.get<Park[]>(`${this.baseUrl}api/Park/getParks`);

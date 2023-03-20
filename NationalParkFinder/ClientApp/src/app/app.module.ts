@@ -24,6 +24,8 @@ import { ProfileCreatorComponent } from './Component/profile-creator/profile-cre
 import { ProfileFormComponent } from './Component/profile-form/profile-form.component';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { Secret } from './secret';
+import { ListOfResultsComponent } from './Component/list-of-results/list-of-results.component';
+import { SingleResultComponent } from './Component/single-result/single-result.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { Secret } from './secret';
     BadgesComponent,
     SingleBadgesComponent,
     ProfileCreatorComponent,
-    ProfileFormComponent
+    ProfileFormComponent,
+    ListOfResultsComponent,
+    SingleResultComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
