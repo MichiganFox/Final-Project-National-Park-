@@ -1,5 +1,16 @@
-<div>
-    
-
-
+<div class="card" style="width: 1 rem">
+  <img src="{{ singleResult.images[1].url }}"  class="card-img-top" alt="..." />
+  <div class="card-body">
+    <a href="{{ singleResult.url }}"
+      ><h5 class="card-title">{{ singleResult.fullName }}</h5></a
+    >
+    <p class="card-text">{{ singleResult.description }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <p *ngFor="let a of singleResult.activities">{{ a.name }}</p>
+    </li>
+    <li class="list-group-item">{{ singleResult.states }}</li>
+    <li class="list-group-item"><p *ngFor="let a of singleResult.addresses">{{ a.line1 }} {{ a.line2 }} {{ a.line3 }} {{ a.city }} {{ a.stateCode }}</p></li>
+  </ul>
 </div>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Park } from '../Model/park';
+import { Datum, Park } from '../Model/park';
 
 
 @Injectable({
@@ -11,17 +11,17 @@ export class ParkService {
 
   constructor(@Inject('BASE_URL') private baseUrl:string, private http:HttpClient ) { }
 
-  getParks():Observable<Park[]>{
-    return this.http.get<Park[]>(`${this.baseUrl}api/Park/getParks`);
+  getParks():Observable<Datum[]>{
+    return this.http.get<Datum[]>(`${this.baseUrl}api/Park/getParks?limit=496`);
    
   }
 
-   getParksByName(parkName: string):Observable<Park[]>{
-    return this.http.get<Park[]>(`${this.baseUrl}api/Park/getParksByName?_parkName=${parkName}`);
+   getParksByName(parkName: string):Observable<Datum[]>{
+    return this.http.get<Datum[]>(`${this.baseUrl}api/Park/getParksByName?_parkName=${parkName}`);
    }
 
-   getParksByActivities(allResults: string):Observable<Park[]>{
-    return this.http.get<Park[]>(`${this.baseUrl}api/Park/getParksByActivities?_allResults=${allResults}`);
+   getParksByActivities(allResults: string):Observable<Datum[]>{
+    return this.http.get<Datum[]>(`${this.baseUrl}api/Park/getParksByActivities?_allResults=${allResults}`);
    }
    
   }

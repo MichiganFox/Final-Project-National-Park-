@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
+﻿using Microsoft.AspNetCore.Mvc;
 using NationalParkFinder.Models;
 
 namespace NationalParkFinder.Controllers
@@ -9,44 +7,45 @@ namespace NationalParkFinder.Controllers
     [ApiController]
     public class ParkController : ControllerBase
     {
+        //public static List<Datum> allParks = ParkDAL.GetPark().data.ToList();
         [HttpGet("getParks")]
-        public Park GetParks()
+        public List<Datum> GetParks()
         {
-            return ParkDAL.GetPark();
+            return ParkDAL.GetPark().data.ToList();
         }
-        [HttpGet("getParksByName")]
-        public Park GetParksByName(string _parkName)
-        {
 
+        [HttpGet("getParksByName")]
+        public List<Datum> GetParksByName(string _parkName)
+        {
             Park allParks = ParkDAL.GetPark();
-            Park resultParks = new Park();
-            
-            
-                foreach(Datum d in allParks.data)
-                {
-                    if (d.fullName.Contains(_parkName))
-                        {
-                        //resultParks.Add(park);
-                    }
-                }
-            
-            return resultParks;
-            /*allParks.Where(park => park.data.Where(p => p.fullName.Contains(_parkName));*/
-        }
-        
-        [HttpGet("getParksByActivity")]
-        public List<Park> GetParksByActivities(string _allResults) { 
-            string[] results= _allResults.Split(',');
-            
-            
-            //List<Park> allParks = ParkDAL.GetPark();
-            List<Park> resultParks = new List<Park>();
-            foreach(string r in results)
+            List<Datum> resultParks = new List<Datum>();
+
+            foreach (Datum d in allParks.data)
             {
-                //List<Park> parks = GetParksByActivity(r, allParks);
-               // foreach(Park park in parks)
+                if (d.fullName.Contains(_parkName))
                 {
-                    //resultParks.Add(park);
+                    resultParks.Add(d);
+                }
+            }
+
+            return resultParks;
+
+        }
+
+        [HttpGet("getParksByActivity")]
+        public List<Datum> GetParksByActivities(string _allResults)
+        {
+            string[] results = _allResults.Split(',');
+
+
+            List<Datum> allParks = ParkDAL.GetPark().data.ToList();
+            List<Datum> resultParks = new List<Datum>();
+            foreach (string r in results)
+            {
+                List<Datum> parks = GetParksByActivity(r, allParks);
+                foreach (Datum park in parks)
+                {
+                    resultParks.Add(park);
                 }
 
             }
@@ -54,22 +53,20 @@ namespace NationalParkFinder.Controllers
 
         }
 
-        public List<Park> GetParksByActivity(string _name, List<Park> _parks)
+        public List<Datum> GetParksByActivity(string _name, List<Datum> _parks)
         {
-            List<Park> resultParks = new List<Park>();
-            foreach(Park park in _parks)
-            {
-                foreach(Datum d in park.data)
+            List<Datum> resultParks = new List<Datum>();
+                foreach (Datum d in _parks)
                 {
-                    foreach(Activity a in d.activities)
+                    foreach (Activity a in d.activities)
                     {
-                        if(a.name == _name)
+                        if (a.name == _name)
                         {
-                            resultParks.Add(park);
+                            resultParks.Add(d);
                         }
                     }
                 }
-            }
+            
             return resultParks;
         }
     }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Park } from 'src/app/Model/park';
+import { Datum, Park } from 'src/app/Model/park';
 
 @Component({
   selector: 'app-single-result',
@@ -7,7 +7,7 @@ import { Park } from 'src/app/Model/park';
   styleUrls: ['./single-result.component.css']
 })
 export class SingleResultComponent implements OnInit {
-  @Input() singleResult:Park = {} as Park;
+  @Input() singleResult:Datum = {} as Datum;
   constructor() { }
 
   ngOnInit(): void {
