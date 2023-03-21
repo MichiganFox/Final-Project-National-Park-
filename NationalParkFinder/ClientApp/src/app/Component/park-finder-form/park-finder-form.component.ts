@@ -1,7 +1,6 @@
-import { outputAst } from '@angular/compiler';
-import { Component, Output } from '@angular/core';
-import { Datum } from 'src/app/Model/park';
-import { ParkService } from 'src/app/Service/park.service';
+
+import { Component, EventEmitter, Output } from '@angular/core';
+
 
 
 @Component({
@@ -12,7 +11,9 @@ import { ParkService } from 'src/app/Service/park.service';
 export class ParkFinderFormComponent {
 
   
- /*  @Output newSearchEvent=new EventEmitter<''>(); */
+ @Output() newSearchEvent = new EventEmitter<string>(); 
+ @Output() newFilterEvent = new EventEmitter<string>();
+
   toggleDisplay(): void {
     this.display = !this.display;
     this.display2 = false;
@@ -24,6 +25,14 @@ export class ParkFinderFormComponent {
   }
   display2: boolean = false;
 
+  result:string="";
+  searchByName():void{
+    this.newSearchEvent.emit(this.result)
+    console.log(this.result);
+  }
   
-  
+  filterByActivity():void{
+    this.newFilterEvent.emit(this.result)
+    console.log(this.result);
+  }
 }
