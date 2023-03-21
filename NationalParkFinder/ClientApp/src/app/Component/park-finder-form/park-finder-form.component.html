@@ -1,1 +1,27 @@
-<p>park-finder-form works!</p>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne" (click)="toggleDisplay()">
+      <button class="accordion-button collapsed" type="button">
+        <strong>Search By Name</strong>
+      </button>
+    </h2>
+    <div *ngIf="display">
+      <div class="accordion-body">        
+            <input type="text" >
+            <!-- <button (click)="searchByName()">Search</button>  -->       
+      </div>
+    </div>
+  </div>
+</div>
+<div class="accordion" id="accordionExample1">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo" (click)="toggleDisplay2()">
+        <button class="accordion-button collapsed" type="button">
+          <strong>Search By Filters</strong>
+        </button>
+      </h2>
+      <div *ngIf="display2">
+        <div class="accordion-body">this would be the search function</div>
+      </div>
+    </div>
+  </div>

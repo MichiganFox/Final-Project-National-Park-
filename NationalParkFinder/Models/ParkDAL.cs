@@ -11,7 +11,7 @@ namespace NationalParkFinder.Models
         {
             //setup
             string key = Secret.apiKey;
-            string url = $"https://developer.nps.gov/api/v1/parks?api_key={key}&limit=100"; 
+            string url = $"https://developer.nps.gov/api/v1/parks?api_key={key}&limit=468"; 
 
             HttpWebRequest request = WebRequest.CreateHttp(url);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
