@@ -1,5 +1,5 @@
 import { outputAst } from '@angular/compiler';
-import { Component, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Datum } from 'src/app/Model/park';
 import { ParkService } from 'src/app/Service/park.service';
 
@@ -12,7 +12,7 @@ import { ParkService } from 'src/app/Service/park.service';
 export class ParkFinderFormComponent {
 
   
- /*  @Output newSearchEvent=new EventEmitter<''>(); */
+  /* @Output newSearchEvent=new EventEmitter<''>(); */
   toggleDisplay(): void {
     this.display = !this.display;
     this.display2 = false;
