@@ -32,42 +32,23 @@ namespace NationalParkFinder.Controllers
 
         }
 
-        [HttpGet("getParksByActivity")]
+        [HttpGet("getParksByActivities")]
         public List<Datum> GetParksByActivities(string _allResults)
         {
-            string[] results = _allResults.Split(',');
-
-
+            string[] results = _allResults.Substring(0,_allResults.Length-1).Split(',');
+           
             List<Datum> allParks = ParkDAL.GetPark().data.ToList();
             List<Datum> resultParks = new List<Datum>();
-            foreach (string r in results)
+            foreach (Datum park in allParks)
             {
-                List<Datum> parks = GetParksByActivity(r, allParks);
-                foreach (Datum park in parks)
+                if (results.All(a => park.activities.Count(p => p.name.Trim().ToLower() == a.Trim().ToLower()) > 0))
                 {
                     resultParks.Add(park);
                 }
-
             }
-            return resultParks.Distinct().ToList();
 
-        }
-
-        public List<Datum> GetParksByActivity(string _name, List<Datum> _parks)
-        {
-            List<Datum> resultParks = new List<Datum>();
-                foreach (Datum d in _parks)
-                {
-                    foreach (Activity a in d.activities)
-                    {
-                        if (a.name.ToLower().Trim() == _name.ToLower().Trim())
-                        {
-                            resultParks.Add(d);
-                        }
-                    }
-                }
-            
             return resultParks;
         }
+            
     }
 }

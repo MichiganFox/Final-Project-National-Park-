@@ -32,7 +32,16 @@ export class ParkFinderFormComponent {
   }
   
   filterByActivity():void{
-    this.newFilterEvent.emit(this.result)
+    this.result="";
+    document.getElementsByName("Filter").forEach((activity:HTMLElement)=>{
+      let input:HTMLInputElement = activity as HTMLInputElement;
+      if(input.checked)
+      {
+        this.result += input.value;
+      }
+    })
     console.log(this.result);
+    this.newFilterEvent.emit(this.result)
+    
   }
 }

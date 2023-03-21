@@ -6,106 +6,246 @@
       </button>
     </h2>
     <div *ngIf="display">
-      <div class="accordion-body">        
-            <input type="text" [(ngModel)]="result">
-             <button (click)="searchByName()">Search</button>      
+      <div class="accordion-body">
+        <input type="text" [(ngModel)]="result" />
+        <button (click)="searchByName()">Search</button>
       </div>
     </div>
   </div>
 </div>
 <div class="accordion" id="accordionExample1">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo" (click)="toggleDisplay2()">
-        <button class="accordion-button collapsed" type="button">
-          <strong>Search By Filters</strong>
-        </button>
-      </h2>
-      <div *ngIf="display2">
-        <div class="accordion-body" >
-          <form>
-            <input type="checkbox" id="Arts and Culture" name="Arts and Culture" value="Arts and Culture,">
-            <label for="Arts and Culture">Arts and Culture</label><br>
-            <input type="checkbox" id="Astronomy" name="Astronomy" value="Astronomy,">
-            <label for="Astronomy"> Astronomy</label><br>
-            <input type="checkbox" id="Auto and ATV" name="Auto and ATV" value="Auto and ATV,">
-            <label for="Auto and ATV"> Auto and ATV </label><br>
-            <input type="checkbox" id="Biking" name="Biking" value="Biking,">
-              <label for="Biking">Biking</label><br>
-              <input type="checkbox" id="Boating" name="Boating" value="Boating,">
-              <label for="Boating">Boating</label><br>
-              <input type="checkbox" id="Camping" name="Camping" value="Camping,">
-              <label for="Camping">Camping</label><br>
-              <input type="checkbox" id="Canyoneering " name="Canyoneering " value="Canyoneering,">
-              <label for="Canyoneering ">Canyoneering</label><br>
-              <input type="checkbox" id="Caving" name="Caving" value="Caving,">
-              <label for="Caving">Caving</label><br>
-              <input type="checkbox" id="Climbing" name="Climbing" value="Climbing,">
-              <label for="Climbing">Climbing</label><br>
-              <input type="checkbox" id="Compass and GPS" name="Compass and GPS" value="Compass and GPS,">
-              <label for="Compass and GPS">Compass and GPS</label><br>
-              <input type="checkbox" id="Dog Sledding" name="Dog Sledding" value="Dog Sledding,">
-              <label for="Dog Sledding">Dog Sledding</label><br>
-              <input type="checkbox" id="Fishing" name="Fishing" value="Fishing,">
-              <label for="Fishing">Fishing</label><br>
-              <input type="checkbox" id="Flying" name="Flying" value="Flying,">
-              <label for="Flying">Flying</label><br>
-              <input type="checkbox" id="Golfing" name="Golfing" value="Golfing,">
-              <label for="Golfing">Golfing</label><br>
-              <input type="checkbox" id="Food" name="Food" value="Food,">
-              <label for="Food">Food</label><br>
-              <input type="checkbox" id="Guided Tours" name="Guided Tours" value="Guided Tours,">
-              <label for="Guided Tours">Guided Tours</label><br>
-              <input type="checkbox" id="Hands-On" name="Hands-On" value="Hands-On">
-              <label for="Hands-On">Hands-On</label><br>
-              <input type="checkbox" id="Hiking" name="Hiking" value="Hiking,">
-              <label for="Hiking">Hiking</label><br>
-              <input type="checkbox" id="Horse Trekking" name="Horse Trekking" value="Horse Trekking,">
-              <label for="Horse Trekking">Horse Trekking</label><br>
-              <input type="checkbox" id="Hunting and Gathering" name="Hunting and Gathering" value="Hunting and Gathering,">
-              <label for="Hunting and Gathering">Hunting and Gathering</label><br>
-              <input type="checkbox" id="Ice Skating" name="Ice Skating" value="Ice Skating,">
-              <label for="Ice Skating">Ice Skating</label><br>
-              <input type="checkbox" id="Junior Ranger Program" name="Junior Ranger Program" value="Junior Ranger Program,">
-              <label for="Junior Ranger Program">Junior Ranger Program</label><br>
-              <input type="checkbox" id="Living History" name="Living History" value="Living History,">
-              <label for="Living History">Living History</label><br>
-              <input type="checkbox" id="Museum Exhibits" name="Museum Exhibits" value="Museum Exhibits,">
-              <label for="Museum Exhibits">Museum Exhibits</label><br>
-              <input type="checkbox" id="Paddling" name="Paddling" value="Paddling,">
-              <label for="Paddling">Paddling</label><br>
-              <input type="checkbox" id="Park Film" name="Park Film" value="Park Film,">
-              <label for="Park Film">Park Film</label><br>
-              <input type="checkbox" id="Playground" name="Playground" value="Playground,">
-              <label for="Playground">Playground</label><br>
-              <input type="checkbox" id="SCUBA Diving" name="SCUBA Diving" value="SCUBA Diving,">
-              <label for="SCUBA Diving ">SCUBA Diving</label><br>
-              <input type="checkbox" id="Shopping" name="Shopping" value="Shopping,">
-              <label for="Shopping">Shopping</label><br>
-              <input type="checkbox" id="Skiing" name="Skiing" value="Skiing,">
-              <label for="Skiing">Skiing</label><br>
-             <input type="checkbox" id="Snorkeling" name="Snorkeling" value="Snorkeling,">
-                              <label for="Snorkeling"> Snorkeling</label><br>
-                              <input type="checkbox" id="Snow Playing" name="Snow Playing" value="Snow Play,">
-                              <label for="Snow Playing"> Snow Play</label><br>
-                              <input type="checkbox" id="Snowmobling" name="Snowmobling" value="Snowmobling,">
-                              <label for="Snowmobling">Snowmobling</label><br>
-              <input type="checkbox" id="Snowshoeing" name="Snowshoeing" value="Snowshoeing,">
-                          <label for="Snowshoeing"> Snowshoeing</label><br>
-                          <input type="checkbox" id="Surfing" name="Surfing" value="Surfing,">
-                          <label for="Surfing"> Surfing</label><br>
-                          <input type="checkbox" id="Swimming" name="Swimming" value="Swimming,">
-                          <label for="Swimming"> Swimming</label><br>
-                          <input type="checkbox" id="Team Sports" name="Team Sports" value="Team Sports,">
-                          <label for="Team Sports"> Team Sports</label><br>
-                          <input type="checkbox" id="Tubing" name="Tubing" value="Tubing">
-                          <label for="Tubing">Tubing</label><br>
-                          <input type="checkbox" id="Water Skiing" name="Water Skiing" value="Water Skiing">
-                          <label for="Water Skiing"> Water Skiing</label><br>
-                          <input type="checkbox" id="Wildlife Watching" name="Wildlife Watching" value="Wildlife Watching">
-                          <label for="Wildlife Watching"> WildLife Watching</label>
-             
-          </form>
-          </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo" (click)="toggleDisplay2()">
+      <button class="accordion-button collapsed" type="button">
+        <strong>Search By Filters</strong>
+      </button>
+    </h2>
+    <div *ngIf="display2">
+      <div class="accordion-body">
+        <form>
+          <input
+            type="checkbox"
+            id="Arts and Culture"
+            name="Filter"
+            value="Arts and Culture,"
+          />
+          <label for="Arts and Culture">Arts and Culture</label><br />
+          <input
+            type="checkbox"
+            id="Astronomy"
+            name="Filter"
+            value="Astronomy,"
+          />
+          <label for="Astronomy"> Astronomy</label><br />
+          <input
+            type="checkbox"
+            id="Auto and ATV"
+            name="Filter"
+            value="Auto and ATV,"
+          />
+          <label for="Auto and ATV"> Auto and ATV </label><br />
+          <input type="checkbox" id="Biking" name="Filter" value="Biking," />
+          <label for="Biking">Biking</label><br />
+          <input type="checkbox" id="Boating" name="Filter" value="Boating," />
+          <label for="Boating">Boating</label><br />
+          <input type="checkbox" id="Camping" name="Filter" value="Camping," />
+          <label for="Camping">Camping</label><br />
+          <input
+            type="checkbox"
+            id="Canyoneering "
+            name="Filter"
+            value="Canyoneering,"
+          />
+          <label for="Canyoneering ">Canyoneering</label><br />
+          <input type="checkbox" id="Caving" name="Filter" value="Caving," />
+          <label for="Caving">Caving</label><br />
+          <input
+            type="checkbox"
+            id="Climbing"
+            name="Filter"
+            value="Climbing,"
+          />
+          <label for="Climbing">Climbing</label><br />
+          <input
+            type="checkbox"
+            id="Compass and GPS"
+            name="Filter"
+            value="Compass and GPS,"
+          />
+          <label for="Compass and GPS">Compass and GPS</label><br />
+          <input
+            type="checkbox"
+            id="Dog Sledding"
+            name="Filter"
+            value="Dog Sledding,"
+          />
+          <label for="Dog Sledding">Dog Sledding</label><br />
+          <input type="checkbox" id="Fishing" name="Filter" value="Fishing," />
+          <label for="Fishing">Fishing</label><br />
+          <input type="checkbox" id="Flying" name="Filter" value="Flying," />
+          <label for="Flying">Flying</label><br />
+          <input type="checkbox" id="Golfing" name="Filter" value="Golfing," />
+          <label for="Golfing">Golfing</label><br />
+          <input type="checkbox" id="Food" name="Filter" value="Food," />
+          <label for="Food">Food</label><br />
+          <input
+            type="checkbox"
+            id="Guided Tours"
+            name="Filter"
+            value="Guided Tours,"
+          />
+          <label for="Guided Tours">Guided Tours</label><br />
+          <input
+            type="checkbox"
+            id="Hands-On"
+            name="Filter"
+            value="Hands-On"
+          />
+          <label for="Hands-On">Hands-On</label><br />
+          <input type="checkbox" id="Hiking" name="Filter" value="Hiking," />
+          <label for="Hiking">Hiking</label><br />
+          <input
+            type="checkbox"
+            id="Horse Trekking"
+            name="Filter"
+            value="Horse Trekking,"
+          />
+          <label for="Horse Trekking">Horse Trekking</label><br />
+          <input
+            type="checkbox"
+            id="Hunting and Gathering"
+            name="Filter"
+            value="Hunting and Gathering,"
+          />
+          <label for="Hunting and Gathering">Hunting and Gathering</label><br />
+          <input
+            type="checkbox"
+            id="Ice Skating"
+            name="Filter"
+            value="Ice Skating,"
+          />
+          <label for="Ice Skating">Ice Skating</label><br />
+          <input
+            type="checkbox"
+            id="Junior Ranger Program"
+            name="Filter"
+            value="Junior Ranger Program,"
+          />
+          <label for="Junior Ranger Program">Junior Ranger Program</label><br />
+          <input
+            type="checkbox"
+            id="Living History"
+            name="Filter"
+            value="Living History,"
+          />
+          <label for="Living History">Living History</label><br />
+          <input
+            type="checkbox"
+            id="Museum Exhibits"
+            name="Filter"
+            value="Museum Exhibits,"
+          />
+          <label for="Museum Exhibits">Museum Exhibits</label><br />
+          <input
+            type="checkbox"
+            id="Paddling"
+            name="Filter"
+            value="Paddling,"
+          />
+          <label for="Paddling">Paddling</label><br />
+          <input
+            type="checkbox"
+            id="Park Film"
+            name="Filter"
+            value="Park Film,"
+          />
+          <label for="Park Film">Park Film</label><br />
+          <input
+            type="checkbox"
+            id="Playground"
+            name="Filter"
+            value="Playground,"
+          />
+          <label for="Playground">Playground</label><br />
+          <input
+            type="checkbox"
+            id="SCUBA Diving"
+            name="Filter"
+            value="SCUBA Diving,"
+          />
+          <label for="SCUBA Diving ">SCUBA Diving</label><br />
+          <input
+            type="checkbox"
+            id="Shopping"
+            name="Filter"
+            value="Shopping,"
+          />
+          <label for="Shopping">Shopping</label><br />
+          <input type="checkbox" id="Skiing" name="Filter" value="Skiing," />
+          <label for="Skiing">Skiing</label><br />
+          <input
+            type="checkbox"
+            id="Snorkeling"
+            name="Filter"
+            value="Snorkeling,"
+          />
+          <label for="Snorkeling"> Snorkeling</label><br />
+          <input
+            type="checkbox"
+            id="Snow Playing"
+            name="Filter"
+            value="Snow Play,"
+          />
+          <label for="Snow Playing"> Snow Play</label><br />
+          <input
+            type="checkbox"
+            id="Snowmobling"
+            name="Filter"
+            value="Snowmobling,"
+          />
+          <label for="Snowmobling">Snowmobling</label><br />
+          <input
+            type="checkbox"
+            id="Snowshoeing"
+            name="Filter"
+            value="Snowshoeing,"
+          />
+          <label for="Snowshoeing"> Snowshoeing</label><br />
+          <input type="checkbox" id="Surfing" name="Filter" value="Surfing," />
+          <label for="Surfing"> Surfing</label><br />
+          <input
+            type="checkbox"
+            id="Swimming"
+            name="Filter"
+            value="Swimming,"
+          />
+          <label for="Swimming"> Swimming</label><br />
+          <input
+            type="checkbox"
+            id="Team Sports"
+            name="Filter"
+            value="Team Sports,"
+          />
+          <label for="Team Sports"> Team Sports</label><br />
+          <input type="checkbox" id="Tubing" name="Filter" value="Tubing" />
+          <label for="Tubing">Tubing</label><br />
+          <input
+            type="checkbox"
+            id="Water Skiing"
+            name="Filter"
+            value="Water Skiing"
+          />
+          <label for="Water Skiing"> Water Skiing</label><br />
+          <input
+            type="checkbox"
+            id="Wildlife Watching"
+            name="Filter"
+            value="Wildlife Watching"
+          />
+          <label for="Wildlife Watching"> WildLife Watching</label>
+          <input type="submit" value="submit" (click)="filterByActivity()" />
+        </form>
       </div>
     </div>
   </div>
+</div>
