@@ -1,1 +1,15 @@
-<p>profile-form works!</p>
+
+<div>
+    <h1>Create your profile:</h1>
+    <p>Display name:</p>
+    <input type="text" [(ngModel)]="newUser.userName"/>
+    <p>Hometown:</p>
+    <input type="text" [(ngModel)]="newUser.region"/>
+    <p>Favorite activities:</p>
+    <input type="text" [(ngModel)]="newUser.activities"/>
+    <p>Preferred lodging:</p>
+    <input type="text" [(ngModel)]="newUser.lodging"/>
+    <p>Website style:</p>
+    <input type="text" [(ngModel)]="newUser.style"/>
+    <button (click)="createUserProfile()">Complete Profile</button>
+</div>
