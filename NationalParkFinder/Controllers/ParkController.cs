@@ -22,7 +22,7 @@ namespace NationalParkFinder.Controllers
 
             foreach (Datum d in allParks.data)
             {
-                if (d.fullName.Contains(_parkName))
+                if (d.fullName.ToLower().Trim().Contains(_parkName.ToLower().Trim()))
                 {
                     resultParks.Add(d);
                 }
@@ -60,7 +60,7 @@ namespace NationalParkFinder.Controllers
                 {
                     foreach (Activity a in d.activities)
                     {
-                        if (a.name == _name)
+                        if (a.name.ToLower().Trim() == _name.ToLower().Trim())
                         {
                             resultParks.Add(d);
                         }
