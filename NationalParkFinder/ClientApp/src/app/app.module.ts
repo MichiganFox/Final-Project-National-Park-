@@ -25,6 +25,7 @@ import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 
 import { Secret } from './secret';
 import { ListOfResultsComponent } from './Component/list-of-results/list-of-results.component';
 import { SingleResultComponent } from './Component/single-result/single-result.component';
+import { AdventureFormComponent } from './Component/adventure-form/adventure-form.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SingleResultComponent } from './Component/single-result/single-result.c
     ProfileCreatorComponent,
     ProfileFormComponent,
     ListOfResultsComponent,
-    SingleResultComponent
+    SingleResultComponent,
+    AdventureFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -56,6 +58,7 @@ import { SingleResultComponent } from './Component/single-result/single-result.c
       { path: '', component: HomeComponent, pathMatch: 'full' },
       {path: 'profileForm', component: ProfileFormComponent},
       {path: 'park', component: ParkFinderComponent},
+      {path: 'profilePage', component: ProfilePageComponent},
     ])
   ],
   providers: [

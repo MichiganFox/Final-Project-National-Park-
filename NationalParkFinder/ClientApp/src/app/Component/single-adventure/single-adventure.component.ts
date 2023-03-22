@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AdventureLog } from 'src/app/Model/adventure-log';
 
 @Component({
   selector: 'app-single-adventure',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./single-adventure.component.css']
 })
 export class SingleAdventureComponent {
-
+@Input() singleAdventure : AdventureLog= {} as AdventureLog;
 }
