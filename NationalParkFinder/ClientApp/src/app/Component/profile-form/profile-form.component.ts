@@ -34,7 +34,8 @@ createUserProfile():void{
     homeTown: this.newUser.homeTown,
     activities: this.newUser.activities,
     lodging: this.newUser.lodging,
-    style: this.newUser.style
+    style: this.newUser.style,
+    id: 0
   };
 
   this.userService.createUserProfile(result).subscribe((result:UserProfile) => {
