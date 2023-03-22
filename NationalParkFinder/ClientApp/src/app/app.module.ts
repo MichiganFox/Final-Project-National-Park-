@@ -7,8 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+
 import { ParkFinderComponent } from './Component/park-finder/park-finder.component';
 import { ParkFinderFormComponent } from './Component/park-finder-form/park-finder-form.component';
 import { ProfilePageComponent } from './Component/profile-page/profile-page.component';
@@ -32,8 +31,6 @@ import { SingleResultComponent } from './Component/single-result/single-result.c
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     ParkFinderComponent,
     ParkFinderFormComponent,
     ProfilePageComponent,
@@ -57,8 +54,7 @@ import { SingleResultComponent } from './Component/single-result/single-result.c
     SocialLoginModule, 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      {path: 'profileForm', component: ProfileFormComponent},
       {path: 'park', component: ParkFinderComponent},
     ])
   ],
