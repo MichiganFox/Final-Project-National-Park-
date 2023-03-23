@@ -11,6 +11,7 @@ const PROXY_CONFIG = [
       "/api/Favorite",
       "/api/Park",
       "/api/UserProfile",
+      "/api/Alert"
    ],
     target: target,
     secure: false,
