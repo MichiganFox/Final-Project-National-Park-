@@ -1,12 +1,12 @@
-//export interface Alerts {
-    export interface NationalParksParkInfo {
+
+    export interface Response {
         total: string;
-        data:  Array<Datum1[]>;
+        data:  Alert[];
         limit: string;
         start: string;
     }
     
-    export interface Datum1 {
+    export interface Alert {
         category:    string;
         description: string;
         id:          string;

@@ -32,7 +32,9 @@ export class NavMenuComponent {
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = user != null;
+
     });
+    
   }
 
   

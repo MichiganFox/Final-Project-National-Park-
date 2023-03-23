@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { AdventureLog } from 'src/app/Model/adventure-log';
 
 @Component({
@@ -8,4 +9,5 @@ import { AdventureLog } from 'src/app/Model/adventure-log';
 })
 export class SingleAdventureComponent {
 @Input() singleAdventure : AdventureLog= {} as AdventureLog;
+
 }
