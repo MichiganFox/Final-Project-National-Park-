@@ -1,1 +1,20 @@
-<p>profile-page works!</p>
+<div class="btn-toolbar text-center well">
+<button type="button" (click)="toggleDisplay1()" class="btn-success btn-lg active" aria-pressed="true">
+    <span class="glyphicon glyphicon-trash"></span> Watchlist</button>
+<div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div> 
+<button type="button" (click)="toggleDisplay2()" class="btn-success btn-lg active" aria-pressed="true">Places I've Been</button>
+<div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div> 
+<button type="button" (click)="toggleDisplay3()" class="btn-success btn-lg active" aria-pressed="true">Park Finder</button>
+<div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div> 
+<button type="button" (click)="toggleDisplay4()" class="btn-success btn-lg active" aria-pressed="true">Adventure Log</button>
+<div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div> 
+<button type="button" (click)="toggleDisplay5()" class="btn-danger btn-lg active" aria-pressed="true">ALERTS</button>
+
+</div>
+
+<p *ngIf="display1">display1</p>
+<p *ngIf="display2">display2</p>
+<div *ngIf="display3"><app-park-finder></app-park-finder></div>
+<p *ngIf="display4"><app-all-adventures [profileUser]="newUser"></app-all-adventures></p>
+<p *ngIf="display5">display5</p>
+

@@ -9,7 +9,7 @@ import { UserBadge } from '../Model/user-badge';
 })
 export class BadgesService {
 
-  constructor(@Inject('Base_URL') private baseUrl:string, private http:HttpClient ) { 
+  constructor(@Inject('BASE_URL') private baseUrl:string, private http:HttpClient ) { 
   }
 
   getUserBadges(userId: number): Observable<Badges[]>{

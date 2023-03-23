@@ -8,7 +8,7 @@ import { UserProfile } from '../Model/user-profile';
 })
 export class UserProfileService {
 
-  constructor(@Inject('Base_URL') private baseUrl:string, private http:HttpClient ) { }
+  constructor(@Inject('BASE_URL') private baseUrl:string, private http:HttpClient ) { }
 
   getUserProfile(googleId: string):Observable<UserProfile>{
     return this.http.get<UserProfile>(`${this.baseUrl}api/UserProfile/getUserProfile?_googleId=${googleId}`);

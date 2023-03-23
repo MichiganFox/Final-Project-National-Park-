@@ -1,6 +1,6 @@
 <div class="card" style="width: 15 rem">
   
-  <img *ngIf="singleResult.images[1]" src="{{ singleResult.images[1].url }}"  class="card-img-top" alt="..." />
+  <img *ngIf="getPicture()!=''" src="{{ getPicture() }}"  class="card-img-top" alt="..." />
   <div class="card-body">
     <a href="{{ singleResult.url }}"
       ><h5 class="card-title">{{ singleResult.fullName }}</h5></a

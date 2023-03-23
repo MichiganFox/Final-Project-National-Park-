@@ -9,7 +9,7 @@ import { Favorites } from '../Model/favorites';
 })
 export class AdventureLogService {
 
-  constructor(@Inject('Base_URL') private baseUrl:string, private http:HttpClient ) { }
+  constructor(@Inject('BASE_URL') private baseUrl:string, private http:HttpClient ) { }
 
    GetAdventureLogs(userId: number):Observable<AdventureLog[]>{
     return this.http.get<AdventureLog[]>(`${this.baseUrl}api/AdventureLog/getAdventureLog?_userId=${userId}`);

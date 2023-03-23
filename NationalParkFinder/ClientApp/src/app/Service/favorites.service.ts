@@ -9,7 +9,7 @@ import { Park } from '../Model/park';
 })
 export class FavoritesService {
   
-  constructor(@Inject('Base_URL') private baseUrl:string, private http:HttpClient ) { }
+  constructor(@Inject('BASE_URL') private baseUrl:string, private http:HttpClient ) { }
 
    getFavorites(userId: number):Observable<Park[]>{
     return this.http.get<Park[]>(`${this.baseUrl}api/Favorite/getFavorites?_userId=${userId}`);

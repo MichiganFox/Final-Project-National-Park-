@@ -13,5 +13,12 @@ export class SingleResultComponent implements OnInit {
   ngOnInit(): void {
     
   }
+  getPicture():string{
+    if (this.singleResult.images.length==0){
+      return "";
+    } else{
+      return this.singleResult.images[0].url;
+    }
+  }
 
 }
