@@ -52,7 +52,7 @@ namespace NationalParkFinder.Controllers
             }
             int advCount = dbContext.AdventureLogs.Count(a=> a.UserId== _userId);
 
-            if (!(userBadges.Any(b => b.BadgeId == 3))&& advCount == 5)
+            if (!(userBadges.Any(b => b.BadgeId == 3))&& advCount >= 4)
             {
                 UserBadge newBadge = new UserBadge()
                 {
