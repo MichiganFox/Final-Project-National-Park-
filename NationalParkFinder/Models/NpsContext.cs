@@ -21,8 +21,6 @@ public partial class NpsContext : DbContext
 
     public virtual DbSet<Favorite> Favorites { get; set; }
 
-    public virtual DbSet<UserAdventureLog> UserAdventureLogs { get; set; }
-
     public virtual DbSet<UserBadge> UserBadges { get; set; }
 
     public virtual DbSet<UserProfile> UserProfiles { get; set; }
@@ -35,18 +33,22 @@ public partial class NpsContext : DbContext
     {
         modelBuilder.Entity<AdventureLog>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Adventur__3214EC07E0E02D03");
+            entity.HasKey(e => e.Id).HasName("PK__Adventur__3214EC079FBBE49D");
 
             entity.ToTable("AdventureLog");
 
             entity.Property(e => e.ParkId).HasColumnName("ParkID");
+            entity.Property(e => e.UserId).HasColumnName("UserID");
+
+            entity.HasOne(d => d.User).WithMany(p => p.AdventureLogs)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK__Adventure__UserI__01142BA1");
         });
 
         modelBuilder.Entity<Badge>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Badges__3214EC0703F3AFB1");
+            entity.HasKey(e => e.Id).HasName("PK__Badges__3214EC072D418EDE");
 
-            entity.Property(e => e.Badge1).HasColumnName("Badge");
             entity.Property(e => e.BadgeImg).HasColumnName("BadgeIMG");
         });
 
@@ -62,38 +64,20 @@ public partial class NpsContext : DbContext
                 .HasConstraintName("FK__Favorites__UserI__7A672E12");
         });
 
-        modelBuilder.Entity<UserAdventureLog>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__UserAdve__3214EC078D1298A9");
-
-            entity.ToTable("UserAdventureLog");
-
-            entity.Property(e => e.AdventureId).HasColumnName("AdventureID");
-            entity.Property(e => e.UserId).HasColumnName("UserID");
-
-            entity.HasOne(d => d.Adventure).WithMany(p => p.UserAdventureLogs)
-                .HasForeignKey(d => d.AdventureId)
-                .HasConstraintName("FK__UserAdven__Adven__7D439ABD");
-
-            entity.HasOne(d => d.User).WithMany(p => p.UserAdventureLogs)
-                .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__UserAdven__UserI__7E37BEF6");
-        });
-
         modelBuilder.Entity<UserBadge>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__UserBadg__3214EC07C0CEA1F4");
+            entity.HasKey(e => e.Id).HasName("PK__UserBadg__3214EC07A09FB415");
 
             entity.Property(e => e.BadgeId).HasColumnName("BadgeID");
             entity.Property(e => e.UserId).HasColumnName("UserID");
 
             entity.HasOne(d => d.Badge).WithMany(p => p.UserBadges)
                 .HasForeignKey(d => d.BadgeId)
-                .HasConstraintName("FK__UserBadge__Badge__76969D2E");
+                .HasConstraintName("FK__UserBadge__Badge__07C12930");
 
             entity.HasOne(d => d.User).WithMany(p => p.UserBadges)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__UserBadge__UserI__778AC167");
+                .HasConstraintName("FK__UserBadge__UserI__08B54D69");
         });
 
         modelBuilder.Entity<UserProfile>(entity =>

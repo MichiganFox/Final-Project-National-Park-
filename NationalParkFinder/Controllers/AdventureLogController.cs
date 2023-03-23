@@ -19,29 +19,21 @@ namespace NationalParkFinder.Controllers
         [HttpGet("getAdventureLog")]
         public List<AdventureLog> GetAdventureLogs(int _userId)
         {
-            List<AdventureLog> results = new List<AdventureLog>();
-            List<UserAdventureLog> userLog = dbContext.UserAdventureLogs.Where(l => l.UserId == _userId).ToList();
-            foreach (AdventureLog L in dbContext.AdventureLogs)
-            {
-                foreach (UserAdventureLog B in userLog)
-                {
-                    if (L.Id == B.AdventureId)
-                    {
-                        results.Add(L);
-
-                    }
-                }
-            }
-            return results;
+             return dbContext.AdventureLogs.Where(l => l.UserId == _userId).ToList();
+      
+          
         }
 
         [HttpPost("newEntry")]
-        public AdventureLog addEntry(string _parkId, string _details)
+        public AdventureLog addEntry(string _parkId, string _details, int _userId, int _rating, string _title)
         {
             AdventureLog newEntry = new AdventureLog()
             {
                 ParkId = _parkId,
-                Details = _details
+                Details = _details,
+                UserId = _userId,
+                Rating = _rating,
+                Title = _title
             };
             dbContext.AdventureLogs.Add(newEntry);
             dbContext.SaveChanges();
@@ -52,10 +44,12 @@ namespace NationalParkFinder.Controllers
         }
 
         [HttpPut("changeEntry")]
-        public AdventureLog changeEntry(int _id, string _details)
+        public AdventureLog changeEntry(int _id, string _details, int _rating, string _title)
         {
             AdventureLog a = dbContext.AdventureLogs.FirstOrDefault(a => a.Id == _id);
             a.Details = _details;
+            a.Rating = _rating;
+            a.Title = _title;
 
             dbContext.AdventureLogs.Update(a);
             dbContext.SaveChanges();

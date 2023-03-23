@@ -7,7 +7,9 @@ public partial class Badge
 {
     public int Id { get; set; }
 
-    public bool? Badge1 { get; set; }
+    public string? Name { get; set; }
+
+    public string? Desciption { get; set; }
 
     public string? BadgeImg { get; set; }
 

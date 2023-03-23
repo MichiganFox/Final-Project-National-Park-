@@ -1,5 +1,8 @@
 export interface Badges {
     id:number;
-    badge1:boolean;
-    badgeImg:string
+    name: string;
+    desciption: string;
+    badgeImg: string;
+
 }
+

@@ -21,9 +21,9 @@ public partial class UserProfile
 
     public string? Style { get; set; }
 
-    public virtual ICollection<Favorite> Favorites { get; } = new List<Favorite>();
+    public virtual ICollection<AdventureLog> AdventureLogs { get; } = new List<AdventureLog>();
 
-    public virtual ICollection<UserAdventureLog> UserAdventureLogs { get; } = new List<UserAdventureLog>();
+    public virtual ICollection<Favorite> Favorites { get; } = new List<Favorite>();
 
     public virtual ICollection<UserBadge> UserBadges { get; } = new List<UserBadge>();
 }

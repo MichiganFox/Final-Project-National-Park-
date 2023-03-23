@@ -11,5 +11,11 @@ public partial class AdventureLog
 
     public string? Details { get; set; }
 
-    public virtual ICollection<UserAdventureLog> UserAdventureLogs { get; } = new List<UserAdventureLog>();
+    public int? Rating { get; set; }
+
+    public string? Title { get; set; }
+
+    public int? UserId { get; set; }
+
+    public virtual UserProfile? User { get; set; }
 }

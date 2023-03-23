@@ -16,12 +16,12 @@ export class AdventureLogService {
   } 
 
   NewEntry(newEntry: AdventureLog):Observable<AdventureLog>{
-    return this.http.post<AdventureLog>(`${this.baseUrl}api/AdventureLog/newEntry?_parkId=${newEntry.parkId}&_details=${newEntry.details}`,{});
+    return this.http.post<AdventureLog>(`${this.baseUrl}api/AdventureLog/newEntry?_parkId=${newEntry.parkId}&_details=${newEntry.details}&_userId=${newEntry.userId}&_rating=${newEntry.rating}&_title=${newEntry.title}`,{});
     
   }
 
   ChangeEntry(changeEntry: AdventureLog):Observable<AdventureLog>{
-    return this.http.put<AdventureLog>(`${this.baseUrl}api/AdventureLog/changeEntry?_id=${changeEntry.id}&_details=${changeEntry.details}`,{});
+    return this.http.put<AdventureLog>(`${this.baseUrl}api/AdventureLog/changeEntry?_id=${changeEntry.id}&_details=${changeEntry.details}&_rating=${changeEntry.rating}&_title=${changeEntry.title}`,{});
   }
 
   DeleteItem(deleteItem: AdventureLog) : Observable<AdventureLog>{

@@ -5,8 +5,14 @@
         <input type="radio" id="{{p.id}}" name="SelectPark" [value]="p.id" [(ngModel)]="adventureLog.parkId">
         <label for="{{p.id}}">{{p.fullName}}</label>
     </div>
-<p>Enter Details:</p>
-<input type="text" [(ngModel)]="adventureLog.details"/>
+   
+
+    <p>Entry Title:</p>
+<input type="text" [(ngModel)]="adventureLog.title"/>
+    <p>Enter Details:</p>
+    <input type="text" [(ngModel)]="adventureLog.details"/>  
+<p>Give it Stars:</p>
+<input type="number" min="1" max="5" [(ngModel)]="adventureLog.rating"/>
 
 <button (click)="NewEntry()">Add Entry</button>
 

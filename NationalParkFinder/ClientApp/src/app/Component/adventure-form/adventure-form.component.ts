@@ -34,6 +34,7 @@ result:string ="";
     
     
     NewEntry(): void {
+      this.adventureLog.userId= this.profileUser.id;
       this.adventureLogService.NewEntry(this.adventureLog).subscribe((response:AdventureLog)=>{
       console.log(response);
 
