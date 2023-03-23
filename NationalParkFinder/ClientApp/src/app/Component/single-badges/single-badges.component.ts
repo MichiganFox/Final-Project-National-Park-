@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Badges } from 'src/app/Model/badges';
 
 @Component({
   selector: 'app-single-badges',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class SingleBadgesComponent {
 
+  @Input() singleBadges: Badges= {} as Badges;
 }

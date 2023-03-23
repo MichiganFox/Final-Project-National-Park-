@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Datum } from 'src/app/Model/park';
 
 @Component({
   selector: 'app-single-alert',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class SingleAlertComponent {
 
+  @Input() singleAlert: Datum= {} as Datum;
+  
 }

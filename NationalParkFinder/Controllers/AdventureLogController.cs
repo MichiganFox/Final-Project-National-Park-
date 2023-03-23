@@ -36,8 +36,34 @@ namespace NationalParkFinder.Controllers
                 Title = _title
             };
             dbContext.AdventureLogs.Add(newEntry);
-            dbContext.SaveChanges();
+            
 
+            List<UserBadge> userBadges = dbContext.UserBadges.Where(b => b.UserId == _userId).ToList();
+
+            if (!(userBadges.Any(b => b.BadgeId == 2)))
+            {
+                UserBadge newBadge = new UserBadge() {
+                    BadgeId= 2,
+                    UserId = _userId,
+                    
+                };
+                dbContext.UserBadges.Add(newBadge);
+                
+            }
+            int advCount = dbContext.AdventureLogs.Count(a=> a.UserId== _userId);
+
+            if (!(userBadges.Any(b => b.BadgeId == 3))&& advCount == 5)
+            {
+                UserBadge newBadge = new UserBadge()
+                {
+                    BadgeId = 3,
+                    UserId = _userId,
+
+                };
+                dbContext.UserBadges.Add(newBadge);
+
+            }
+            dbContext.SaveChanges();
             return newEntry;
 
 
