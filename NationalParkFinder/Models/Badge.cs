@@ -12,6 +12,6 @@ public partial class Badge
     public string? Desciption { get; set; }
 
     public string? BadgeImg { get; set; }
-
+    [System.Text.Json.Serialization.JsonIgnore]
     public virtual ICollection<UserBadge> UserBadges { get; } = new List<UserBadge>();
 }

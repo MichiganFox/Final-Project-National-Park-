@@ -11,10 +11,23 @@ namespace NationalParkFinder.Controllers
         NpsContext dbContext = new NpsContext();
 
         [HttpGet("getUserBadges")]
-        public List<UserBadge> getUserBadges(int _userId)
+        public List<Badge> getUserBadges(int _userId)
         {
             List<UserBadge> achievedBadges = dbContext.UserBadges.Where(u => u.UserId == _userId).ToList();
-            return achievedBadges;
+            List<Badge> badgeList = dbContext.Badges.ToList();
+            List<Badge> badgesEarned = new List<Badge>();
+
+            foreach(UserBadge badge in achievedBadges) 
+            { 
+                foreach(Badge b in badgeList) {
+                    if (badge.BadgeId == b.Id)
+                    {
+                        badgesEarned.Add(b);
+                    }
+                }       
+                  
+            }
+            return badgesEarned;
         }
 
         [HttpPost("awardBadge")]
