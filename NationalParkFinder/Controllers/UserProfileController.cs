@@ -49,6 +49,15 @@ namespace NationalParkFinder.Controllers
                 };
                 dbContext.UserProfiles.Add(newProfile);
                 dbContext.SaveChanges();
+
+                UserBadge newBadge = new UserBadge()
+                {
+                    BadgeId = 1,
+                    UserId = newProfile.Id
+                };
+
+                dbContext.UserBadges.Add(newBadge);
+                dbContext.SaveChanges();
                 return newProfile;
             }
              
