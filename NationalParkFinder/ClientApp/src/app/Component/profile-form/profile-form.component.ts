@@ -1,5 +1,6 @@
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserProfileService } from 'src/app/Service/user-profile.service';
 import { UserProfile } from '../../Model/user-profile';
 
@@ -13,7 +14,8 @@ export class ProfileFormComponent {
 
   constructor(
     private userService: UserProfileService,
-    private authService: SocialAuthService
+    private authService: SocialAuthService,
+    private router:Router
   ) {}
 
   newUser: UserProfile = {} as UserProfile;
@@ -25,7 +27,12 @@ export class ProfileFormComponent {
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = user != null;
+      
     });
+    if(this.loggedIn == false){
+      this.router.navigate(['']);
+    }
+    this.signIn();
   }
 
   createUserProfile(): void {
@@ -44,6 +51,20 @@ export class ProfileFormComponent {
       .createUserProfile(result)
       .subscribe((result: UserProfile) => {
         console.log(result);
+      });
+  }
+
+  signIn() {
+    this.newUser.googleId = this.user.id;
+    this.userService
+      .createUserProfile(this.newUser)
+      .subscribe((response: UserProfile) => {
+        console.log(response);
+      });
+    this.userService
+      .getUserProfile(this.user.id)
+      .subscribe((response: UserProfile) => {
+        console.log(response);
       });
   }
 }

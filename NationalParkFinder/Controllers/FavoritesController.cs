@@ -11,25 +11,24 @@ namespace NationalParkFinder.Controllers
         NpsContext dbContext = new NpsContext();
 
         [HttpGet("getFavorites")]
-        public List<Park> getFavorites(int _userId)
+        public List<Datum> getFavorites(int _userId)
         {
             List<Favorite> resultFavorites = dbContext.Favorites.Where(f=>f.UserId == _userId).ToList();
-            List<Park> allParks = new List<Park>(); //ParkDAL.GetPark();
-            List<Park> resultParks = new List<Park>();
-            foreach (Park park in allParks)
-            {
-                foreach (Datum d in park.data)
+            Park allParks = ParkDAL.GetPark();
+            List<Datum> resultParks = new List<Datum>();
+            
+                foreach (Datum d in allParks.data)
                 {
                     foreach(Favorite f in resultFavorites)
                     {
                         if (d.id == f.ParkId)
                         {
-                            resultParks.Add(park);
+                            resultParks.Add(d);
                         }
                     }
                    
                 }
-            }
+            
 
            return resultParks;
         }
@@ -58,6 +57,13 @@ namespace NationalParkFinder.Controllers
 
             return (result);
 
+        }
+        [HttpGet("checkIfAFavorite")]
+        public bool checkIfAFavorite(string _parkId, int _userId)
+        {
+            List<Favorite> personalFav = dbContext.Favorites.Where(f => f.UserId == _userId).ToList();
+
+            return personalFav.Any(f => f.ParkId == _parkId);
         }
     }
 }

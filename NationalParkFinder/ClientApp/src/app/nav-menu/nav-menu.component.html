@@ -27,17 +27,17 @@
           >
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <li class="nav-item" *ngIf="loggedIn" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/profilePage']"
               >Profile Page</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <li class="nav-item" *ngIf="loggedIn" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/profileForm']"
               >Profile Settings</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <li class="nav-item" *ngIf="loggedIn == false" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/park']"
-              >Park</a
+              >Park Finder</a
             >
           </li>
           <!-- <li class="nav-item" [routerLinkActive]="['link-active']">
@@ -56,6 +56,7 @@
     type="icon"
     size="medium"
   ></asl-google-signin-button>
+
   <div *ngIf="loggedIn">
     <img src="{{ user.photoUrl }}">
     <div>
@@ -65,7 +66,7 @@
   </div>
   
   <div *ngIf="!loggedIn">   
-    <p>Log in to see user info</p>
+    <p>Log in for more functions</p>
   </div>
   </nav>
 </header>

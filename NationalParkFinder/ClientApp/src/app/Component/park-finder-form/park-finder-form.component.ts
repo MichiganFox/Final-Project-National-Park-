@@ -10,7 +10,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class ParkFinderFormComponent {
 
-  
+
  @Output() newSearchEvent = new EventEmitter<string>(); 
  @Output() newFilterEvent = new EventEmitter<string>();
 

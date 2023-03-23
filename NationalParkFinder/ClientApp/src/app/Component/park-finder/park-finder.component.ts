@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Datum, Park } from 'src/app/Model/park';
+import { UserProfile } from 'src/app/Model/user-profile';
 import { ParkService } from 'src/app/Service/park.service';
 
 
@@ -9,7 +10,7 @@ import { ParkService } from 'src/app/Service/park.service';
   styleUrls: ['./park-finder.component.css']
 })
 export class ParkFinderComponent {
-
+  @Input() userProfile:UserProfile= {} as UserProfile;
     result:Datum []=[] 
     constructor (private parkService: ParkService){}
   ngOnInit(): void { this.parkService.getParks().subscribe((response: Datum[])=>{

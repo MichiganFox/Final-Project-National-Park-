@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { Datum } from 'src/app/Model/park';
-import { ParkService } from 'src/app/Service/park.service';
+import { UserProfile } from 'src/app/Model/user-profile';
+
 
 @Component({
   selector: 'app-list-of-results',
@@ -9,7 +11,7 @@ import { ParkService } from 'src/app/Service/park.service';
 })
 export class ListOfResultsComponent{
  @Input() listResults:Datum[]=[];
- 
+ @Input() userProfile:UserProfile={} as UserProfile;
   }
 
 

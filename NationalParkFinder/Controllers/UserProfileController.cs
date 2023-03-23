@@ -10,12 +10,12 @@ namespace NationalParkFinder.Controllers
     {
         NpsContext dbContext = new NpsContext();
         [HttpGet("getUserProfile")]
-        private UserProfile getUserProfile(string _googleId)
+        public UserProfile getUserProfile(string _googleId)
         {
             return dbContext.UserProfiles.FirstOrDefault(p => p.GoogleId == _googleId);
         }
         [HttpPut("updateUserProfile")]
-        private UserProfile updateUserProfile(int _profileId, string _googleId, string _region, string _username, string _homeTown, string _activities, string _lodging, string _style) 
+        public UserProfile updateUserProfile(int _profileId, string _googleId, string _region, string _username, string _homeTown, string _activities, string _lodging, string _style) 
         {
             UserProfile currentProfile = dbContext.UserProfiles.FirstOrDefault(p => p.Id == _profileId);
             currentProfile.GoogleId = _googleId;
@@ -29,7 +29,7 @@ namespace NationalParkFinder.Controllers
             return currentProfile;
         }
         [HttpPost("createUserProfile")]
-        private UserProfile createUserProfile(string _googleId, string _region, string _username, string _homeTown, string _activities, string _lodging, string _style)
+        public UserProfile createUserProfile(string _googleId, string _region, string _username, string _homeTown, string _activities, string _lodging, string _style)
         {
             if(dbContext.UserProfiles.Any(p => p.GoogleId == _googleId))
             {

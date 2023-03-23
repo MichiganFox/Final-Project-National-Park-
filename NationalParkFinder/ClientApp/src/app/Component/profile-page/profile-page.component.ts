@@ -1,5 +1,6 @@
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserProfile } from 'src/app/Model/user-profile';
 import { UserProfileService } from 'src/app/Service/user-profile.service';
 
@@ -12,7 +13,8 @@ export class ProfilePageComponent {
 
   constructor(
     private userService: UserProfileService,
-    private authService: SocialAuthService
+    private authService: SocialAuthService,
+    private router:Router,
   ) {}
 
   newUser: UserProfile = {} as UserProfile;
@@ -25,10 +27,10 @@ export class ProfilePageComponent {
       this.user = user;
       this.loggedIn = user != null;
     });
-    this.userService.getUserProfile(this.user.id).subscribe((response: UserProfile)=> {
-      this.newUser= response;
-
-    });
+    if(this.loggedIn == false){
+      this.router.navigate(['']);
+    }
+    this.signIn();
   }
 
 display1: boolean = false;
@@ -77,5 +79,18 @@ display5: boolean = false;
     this.display5 = !this.display5;
   }
   
- 
+  signIn() {
+    this.newUser.googleId = this.user.id;
+    this.userService
+      .createUserProfile(this.newUser)
+      .subscribe((response: UserProfile) => {
+        console.log(response);
+      });
+    this.userService
+      .getUserProfile(this.user.id)
+      .subscribe((response: UserProfile) => {
+        console.log(response);
+        this.newUser =response;
+      });
+  }
 }

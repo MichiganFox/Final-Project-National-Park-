@@ -14,4 +14,12 @@
     <li class="list-group-item">{{ singleResult.states }}</li>
     <li class="list-group-item"><p *ngFor="let a of singleResult.addresses">{{ a.line1 }} {{ a.line2 }} {{ a.line3 }} {{ a.city }} {{ a.stateCode }}</p></li>
   </ul>
+  
+  <div *ngIf="display">
+    Favorites:
+    <button *ngIf="isFavorited == false" (click)="addToFavorites()">☆</button>
+    <button *ngIf="isFavorited == true" (click)="removeFavorite()">★</button>
+  </div>
+
 </div>
+
