@@ -1,23 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
 
-code {
-  color: #e01a76;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.navbar{
+  background-color:#51615487;
+  font-family:monospace;
+  font-size:x-large
 }
 
 body {
   /* overflow: hidden; */
-  background-color: #fbeaca;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  background-color: #fff4df;
+  font-family:monospace;
+  font-size: medium;
+  color:  #fff4df;
 }
 
+.results{
+  background-color:   #51615487;
+  color: #fff4df;
+}
+
+.search{
+  background-color:  #51615487;
+  color: #100f0eba;
+  font-size: large;
+}
+
+.searchbody{
+  background-color:  #5161544b;
+  color: #100f0eba;
+}
+
+.buttons{
+background-color:   #516154;
+color: #fff4df;
+}
+
+.alerts{
+  background-color: #d95454;
+  color: #fff4df;
+}

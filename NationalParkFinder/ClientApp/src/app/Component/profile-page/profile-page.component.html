@@ -1,21 +1,16 @@
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  </head>
 
-<div class="btn-toolbar text-center well">
-<button type="button" (click)="toggleDisplay1()" class="btn-success btn-lg active" aria-pressed="true">
+
+<div class="body btn-toolbar text-center">
+<button type="button" (click)="toggleDisplay1()" class="buttons btn-lg active" aria-pressed="true">
     <span class="glyphicon glyphicon-eye-open"></span> Watchlist</button>
 <div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div> 
-<button type="button" (click)="toggleDisplay2()" class="btn-success btn-lg active" aria-pressed="true"><span class="glyphicon glyphicon-globe"></span>  badges</button>
+<button type="button" (click)="toggleDisplay2()" class="buttons btn-lg active" aria-pressed="true"><span class="glyphicon glyphicon-globe"></span>  badges</button>
 <div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div> 
-<button type="button" (click)="toggleDisplay3()" class="btn-success btn-lg active" aria-pressed="true"><span class="glyphicon glyphicon-search"></span>  Park Finder</button>
+<button type="button" (click)="toggleDisplay3()" class="buttons btn-lg active" aria-pressed="true"><span class="glyphicon glyphicon-search"></span>  Park Finder</button>
 <div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div> 
-<button type="button" (click)="toggleDisplay4()" class="btn-success btn-lg active" aria-pressed="true"><span class="glyphicon glyphicon-tree-conifer"></span>  Adventure Log</button>
+<button type="button" (click)="toggleDisplay4()" class="buttons btn-lg active" aria-pressed="true"><span class="glyphicon glyphicon-tree-conifer"></span>  Adventure Log</button>
 <div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div> 
-<button type="button" (click)="toggleDisplay5()" class="btn-danger btn-lg active" aria-pressed="true"><span class="glyphicon glyphicon-warning-sign"></span>  ALERTS</button>
+<button type="button" (click)="toggleDisplay5()" class="alerts btn-lg active" aria-pressed="true"><span class="glyphicon glyphicon-warning-sign"></span>  ALERTS</button>
 </div>
 
 <p *ngIf="display1"><app-watchlist [userProfile]="newUser"></app-watchlist>></p>
