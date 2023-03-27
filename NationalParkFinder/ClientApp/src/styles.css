@@ -16,7 +16,7 @@ code {
 }
 
 body {
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #fbeaca;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
