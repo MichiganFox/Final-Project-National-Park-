@@ -13,7 +13,7 @@ body {
   background-color: #fff4df;
   font-family:monospace;
   font-size: medium;
-  color:  #fff4df;
+
 }
 
 .results{
@@ -37,7 +37,14 @@ background-color:   #516154;
 color: #fff4df;
 }
 
-.alerts{
+.alertbttn{
   background-color: #d95454;
   color: #fff4df;
+}
+
+.alertspage{
+  border-style: outset;
+  padding: 1%;
+  font-family:monospace;
+  font-size: large;
 }
