@@ -11,9 +11,11 @@ import { ParkService } from 'src/app/Service/park.service';
   styleUrls: ['./adventure-form.component.css']
 })
 export class AdventureFormComponent implements OnInit {
-  @Output() newSearchEvent = new EventEmitter<string>(); 
+ /*  @Output() newSearchEvent = new EventEmitter<string>(); */ 
+  @Output() newCreationEvent = new EventEmitter<''>();
   adventureLog: AdventureLog={} as AdventureLog;
-result:string ="";
+  result:string ="";
+  incorrectData:boolean = false;
 
   @Input() profileUser : UserProfile={} as UserProfile;
   constructor(private adventureLogService:AdventureLogService, private parkService:ParkService) { }
@@ -35,11 +37,19 @@ result:string ="";
     
     NewEntry(): void {
       this.adventureLog.userId= this.profileUser.id;
-      this.adventureLogService.NewEntry(this.adventureLog).subscribe((response:AdventureLog)=>{
-      console.log(response);
-
-    });
-    }
+      if(this.adventureLog.title != null && this.adventureLog.parkId != null && this.adventureLog.details != null && this.adventureLog.rating != null){
+        this.adventureLogService.NewEntry(this.adventureLog).subscribe((response:AdventureLog)=>{
+          console.log(response);
+          this.newCreationEvent.emit();
+          this.adventureLog = <AdventureLog>{};
+          this.parkResult = <Datum[]>{};
+          this.incorrectData = false;
+        });
+        }else{
+          this.incorrectData = true;
+        }
+      }
+      
   }
 
 

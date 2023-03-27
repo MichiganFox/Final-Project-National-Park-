@@ -18,11 +18,14 @@ result:AdventureLog[]=[];
 
 @Input() profileUser : UserProfile={} as UserProfile;
 
-ngOnInit(): void {this.adventureLogService.GetAdventureLogs(this.profileUser.id).subscribe((response:AdventureLog[])=> {
-  console.log(response);
-  this.result = response;
-});
+ngOnInit(): void {
+  this.getLogs();
 
 }
-
+getLogs():void{
+  this.adventureLogService.GetAdventureLogs(this.profileUser.id).subscribe((response:AdventureLog[])=> {
+    console.log(response);
+    this.result = response;
+  });
+}
 }

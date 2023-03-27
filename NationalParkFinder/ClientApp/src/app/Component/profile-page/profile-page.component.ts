@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserProfile } from 'src/app/Model/user-profile';
 import { UserProfileService } from 'src/app/Service/user-profile.service';
+import { NavMenuComponent } from 'src/app/nav-menu/nav-menu.component';
 
 @Component({
   selector: 'app-profile-page',
@@ -30,7 +31,12 @@ export class ProfilePageComponent {
     if(this.loggedIn == false){
       this.router.navigate(['']);
     }
-    this.signIn();
+    this.userService
+      .getUserProfile(this.user.id)
+      .subscribe((response: UserProfile) => {
+        console.log(response);
+        this.newUser =response;
+      });
   }
 
 display1: boolean = false;
@@ -79,18 +85,4 @@ display5: boolean = false;
     this.display5 = !this.display5;
   }
   
-  signIn() {
-    this.newUser.googleId = this.user.id;
-    this.userService
-      .createUserProfile(this.newUser)
-      .subscribe((response: UserProfile) => {
-        console.log(response);
-      });
-    this.userService
-      .getUserProfile(this.user.id)
-      .subscribe((response: UserProfile) => {
-        console.log(response);
-        this.newUser =response;
-      });
-  }
 }

@@ -1,4 +1,4 @@
 <app-single-adventure *ngFor="let a of result" [singleAdventure]="a"></app-single-adventure>
-<app-adventure-form [profileUser]="profileUser"> </app-adventure-form>
+<app-adventure-form [profileUser]="profileUser" (newCreationEvent)="getLogs()"> </app-adventure-form>
 
 

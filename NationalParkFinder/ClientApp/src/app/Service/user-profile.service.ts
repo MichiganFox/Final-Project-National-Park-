@@ -10,7 +10,7 @@ export class UserProfileService {
 
   constructor(@Inject('BASE_URL') private baseUrl:string, private http:HttpClient ) { }
 
-  getUserProfile(googleId: string):Observable<UserProfile>{
+   getUserProfile(googleId: string):Observable<UserProfile>{
     return this.http.get<UserProfile>(`${this.baseUrl}api/UserProfile/getUserProfile?_googleId=${googleId}`);
 
 }

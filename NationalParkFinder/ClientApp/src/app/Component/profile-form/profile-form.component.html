@@ -1,4 +1,4 @@
-
+<h1 *ngIf="updated">Profile Updated</h1>
 
 <div>
     <h1>Create your profile:</h1>
@@ -12,5 +12,5 @@
     <input type="text" [(ngModel)]="newUser.lodging"/>
     <p>Website style:</p>
     <input type="text" [(ngModel)]="newUser.style"/>
-    <button (click)="createUserProfile()">Complete Profile</button>
+    <button (click)="updateProfile()">Update Profile</button>
 </div> 

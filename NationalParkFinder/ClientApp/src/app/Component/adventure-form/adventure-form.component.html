@@ -1,3 +1,5 @@
+ <h1 *ngIf="incorrectData">Please ensure all blanks are filled and a park is submitted.</h1>
+ 
  <p>Search Parks</p>
  <input type="text" [(ngModel)]="result" />
     <button (click)="searchByName()">Search</button>

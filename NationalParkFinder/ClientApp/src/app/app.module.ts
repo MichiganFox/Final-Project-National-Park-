@@ -26,6 +26,7 @@ import { Secret } from './secret';
 import { ListOfResultsComponent } from './Component/list-of-results/list-of-results.component';
 import { SingleResultComponent } from './Component/single-result/single-result.component';
 import { AdventureFormComponent } from './Component/adventure-form/adventure-form.component';
+import { WatchlistComponent } from './Component/watchlist/watchlist.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AdventureFormComponent } from './Component/adventure-form/adventure-for
     ProfileFormComponent,
     ListOfResultsComponent,
     SingleResultComponent,
-    AdventureFormComponent
+    AdventureFormComponent,
+    WatchlistComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

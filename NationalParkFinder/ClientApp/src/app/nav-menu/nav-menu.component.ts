@@ -1,6 +1,7 @@
 import { GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component, SimpleChange } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProfilePageComponent } from '../Component/profile-page/profile-page.component';
 import { UserProfile } from '../Model/user-profile';
 import { UserProfileService } from '../Service/user-profile.service';
 
@@ -12,12 +13,11 @@ import { UserProfileService } from '../Service/user-profile.service';
 export class NavMenuComponent {
   constructor(
     private authService: SocialAuthService,
-    private userProfileService: UserProfileService,
+    private userService: UserProfileService,
     private router:Router,
   ) {}
-
+  newUser: UserProfile = {} as UserProfile;
   
-
 
   signOut(): void {
     this.authService.signOut();
@@ -32,9 +32,25 @@ export class NavMenuComponent {
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = user != null;
-
+      this.signIn();
+      this.router.navigate(['/profilePage']);
     });
     
+  }
+ 
+  signIn() {
+    this.newUser.googleId = this.user.id;
+    this.userService
+      .createUserProfile(this.newUser)
+      .subscribe((response: UserProfile) => {
+        console.log(response);
+      });
+    this.userService
+      .getUserProfile(this.user.id)
+      .subscribe((response: UserProfile) => {
+        console.log(response);
+        this.newUser =response;
+      });
   }
 
   

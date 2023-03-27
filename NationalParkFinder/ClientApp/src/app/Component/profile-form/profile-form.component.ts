@@ -22,6 +22,7 @@ export class ProfileFormComponent {
 
   user: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
+  updated:boolean = false;
 
   ngOnInit(): void {
     this.authService.authState.subscribe((user) => {
@@ -32,39 +33,28 @@ export class ProfileFormComponent {
     if(this.loggedIn == false){
       this.router.navigate(['']);
     }
-    this.signIn();
+    this.getUserProfile();
   }
+  
 
-  createUserProfile(): void {
-    let result: UserProfile = {
-      googleId: this.user.id,
-      region: this.newUser.region,
-      userName: this.newUser.userName,
-      homeTown: this.newUser.homeTown,
-      activities: this.newUser.activities,
-      lodging: this.newUser.lodging,
-      style: this.newUser.style,
-      id: 0,
-    };
-
+  updateProfile(): void {
+    
     this.userService
-      .createUserProfile(result)
-      .subscribe((result: UserProfile) => {
+    .updateUserProfile(this.newUser)
+    .subscribe((result: UserProfile) => {
         console.log(result);
+        this.getUserProfile();
+        this.updated = true;
       });
+      
   }
 
-  signIn() {
-    this.newUser.googleId = this.user.id;
-    this.userService
-      .createUserProfile(this.newUser)
-      .subscribe((response: UserProfile) => {
-        console.log(response);
-      });
+  getUserProfile():void{
     this.userService
       .getUserProfile(this.user.id)
       .subscribe((response: UserProfile) => {
         console.log(response);
+        this.newUser = response;
       });
   }
 }

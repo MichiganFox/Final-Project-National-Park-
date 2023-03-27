@@ -12,7 +12,7 @@
 </div>
 
 
-<p *ngIf="display1">display1</p>
+<p *ngIf="display1"><app-watchlist [userProfile]="newUser"></app-watchlist>></p>
 <div *ngIf="display2"><app-badges [userProfile]="newUser"></app-badges></div>
 <div *ngIf="display3"><app-park-finder [userProfile]="newUser"></app-park-finder></div>
 <p *ngIf="display4"><app-all-adventures [profileUser]="newUser"></app-all-adventures></p>
