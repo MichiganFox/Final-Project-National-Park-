@@ -12,6 +12,8 @@ import { ParkService } from 'src/app/Service/park.service';
 })
 export class AdventureFormComponent implements OnInit {
  /*  @Output() newSearchEvent = new EventEmitter<string>(); */ 
+
+ //test comment
   @Output() newCreationEvent = new EventEmitter<''>();
   adventureLog: AdventureLog={} as AdventureLog;
   result:string ="";
