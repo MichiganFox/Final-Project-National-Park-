@@ -39,7 +39,7 @@ export class ProfilePageComponent {
       });
   }
 
-display1: boolean = false;
+display1: boolean = true;
 display2: boolean = false;
 display3: boolean = false;
 display4: boolean = false;
