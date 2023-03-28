@@ -24,7 +24,7 @@ export class AdventureLogService {
     return this.http.put<AdventureLog>(`${this.baseUrl}api/AdventureLog/changeEntry?_id=${changeEntry.id}&_details=${changeEntry.details}&_rating=${changeEntry.rating}&_title=${changeEntry.title}`,{});
   }
 
-  DeleteItem(deleteItem: AdventureLog) : Observable<AdventureLog>{
-    return this.http.delete<AdventureLog>(`${this.baseUrl}api/AdventureLog/deleteItem?_id=${deleteItem.id}`);
+  DeleteItem(id:number) : Observable<AdventureLog>{
+    return this.http.delete<AdventureLog>(`${this.baseUrl}api/AdventureLog/deleteItem?_id=${id}`);
   }
 }

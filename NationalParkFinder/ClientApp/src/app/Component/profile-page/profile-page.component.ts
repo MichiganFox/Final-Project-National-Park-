@@ -45,9 +45,9 @@ export class ProfilePageComponent {
         console.log(response);
         this.newUser = response;
         this.watchList.getFavorites(this.newUser.id);
-       /*  this.badges.getBadges(this.newUser.id);
+        this.badges.getBadges(this.newUser.id);
         this.allAdventures.getLogs(this.newUser.id);
-        this.alerts.getAlerts(this.newUser.id); */
+        this.alerts.getAlerts(this.newUser.id);
 
       });
   }

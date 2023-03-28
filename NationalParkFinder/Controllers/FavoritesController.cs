@@ -46,15 +46,21 @@ namespace NationalParkFinder.Controllers
             return result;
 
         }
-        [HttpPost("removeFavorite")]
-        public Favorite removeFavorite(int _favoriteId)
+        [HttpDelete("removeFavorite")]
+        public List<Favorite> removeFavorite(int _userId, string _parkId)
         {
             
-            Favorite result = dbContext.Favorites.FirstOrDefault(f => f.Id == _favoriteId);
-            dbContext.Favorites.Remove(result);
+            List<Favorite> resultList = dbContext.Favorites.Where(f => f.UserId == _userId).ToList();
+            List<Favorite> results = resultList.Where(f => f.ParkId== _parkId).ToList();
+            foreach(Favorite result in results)
+            {
+                dbContext.Favorites.Remove(result);
+            }
+            
+            
             dbContext.SaveChanges();
 
-            return (result);
+            return (results);
 
         }
         [HttpGet("checkIfAFavorite")]
