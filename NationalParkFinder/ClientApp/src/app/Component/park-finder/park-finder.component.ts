@@ -27,13 +27,10 @@ export class ParkFinderComponent {
     })
     
   }
-
-  getParksByActivities(activity:string):void{
-    this.parkService.getParksByActivities(activity).subscribe((response:Datum[])=>{
-      console.log(response);
-      this.result=response;
-    })
+  getParksFilter(parks: Datum[]):void{
+    this.result=parks;
   }
+
  
 }
 

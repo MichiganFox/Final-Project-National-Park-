@@ -17,12 +17,15 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingTwo" (click)="toggleDisplay2()">
       <button class="search accordion-button collapsed" type="button">
-        <strong>Search By Filters</strong>
+        <strong>Search By Activities and/or States</strong>
       </button>
     </h2>
     <div *ngIf="display2">
       <div class="searchbody accordion-body">
         <form>
+          <div class = "row">
+          <div class = "col">
+            <h3>Activity</h3>         
           <input
             type="checkbox"
             id="Arts and Culture"
@@ -243,7 +246,21 @@
             value="Wildlife Watching"
           />
           <label for="Wildlife Watching"> WildLife Watching</label><br/>
-          <input type="submit" value="submit" (click)="filterByActivity()" />
+        </div>
+        <div class = "col">
+          <h3>State</h3>
+          <div *ngFor = "let s of state">
+          <input
+            type="checkbox"
+            id="{{s.name}}"
+            name="State"
+            value="{{s.abbreviation}},"
+          />
+          <label for="{{s.name}}">{{s.abbreviation}}</label><br/>
+        </div>
+        </div>
+      </div>
+          <input type="submit" value="submit" (click)="filterByActivity()" />      
         </form>
       </div>
     </div>

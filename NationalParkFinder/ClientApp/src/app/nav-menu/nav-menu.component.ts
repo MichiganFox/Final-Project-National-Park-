@@ -31,6 +31,7 @@ export class NavMenuComponent {
   userProfile: UserProfile = {} as UserProfile;
 
   ngOnInit(): void {
+    this.parkService.getParks();
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = user != null;
@@ -41,7 +42,6 @@ export class NavMenuComponent {
   }
  
   signIn() {
-    this.parkService.getParks();
     this.newUser.googleId = this.user.id;
     this.newUser.userName = this.user.firstName
     this.userService
