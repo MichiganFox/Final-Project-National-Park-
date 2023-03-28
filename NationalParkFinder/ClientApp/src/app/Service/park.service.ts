@@ -24,4 +24,7 @@ export class ParkService {
     return this.http.get<Datum[]>(`${this.baseUrl}api/Park/getParksByActivities?_allResults=${allResults}`);
    }
    
+   getParksAPI():Observable<Datum[]>{
+    return this.http.get<Datum[]>(`${this.baseUrl}api/Park/getParksAPI?limit=496`);
+   }
   }

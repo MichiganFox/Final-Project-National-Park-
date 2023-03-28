@@ -38,7 +38,7 @@
             <a class="nav-link text-dark" [routerLink]="['/profileForm']"
               >Profile Settings</a>
           </li>
-          <li class="nav-item" *ngIf="loggedIn == false" [routerLinkActive]="['link-active']">
+          <li class="nav-item" *ngIf="loggedIn == false && loading==false" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/park']"
               >Park Finder</a
             >
@@ -54,11 +54,12 @@
   <button class="btn btn-outline-dark" *ngIf="loggedIn" (click)="signOut()">
     Sign Out
   </button>
-  <asl-google-signin-button
+  <div *ngIf="loading==false"> <asl-google-signin-button
     *ngIf="!loggedIn"
     type="icon"
     size="medium"
-  ></asl-google-signin-button>
+  ></asl-google-signin-button></div>
+ 
 
   <div *ngIf="loggedIn">
     <img src="{{ user.photoUrl }}">
@@ -67,8 +68,9 @@
     </div>
   </div>
   
-  <div *ngIf="!loggedIn">   
-    <p>Log in for more functions</p>
-  </div>
+      
+    <p *ngIf="!loggedIn && loading==false">Log in for more functions</p>
+    <p *ngIf="!loggedIn && loading" >Loading in progress</p> 
+  
   </nav>
 </header>

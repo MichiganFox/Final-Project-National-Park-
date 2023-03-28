@@ -8,10 +8,16 @@ namespace NationalParkFinder.Controllers
     public class ParkController : ControllerBase
     {
         public static List<Datum> allParks = new List<Datum>();
+
+        [HttpGet("getParksAPI")]
+        public List<Datum> GetParksAPI()
+        {
+            allParks = ParkDAL.GetPark().data.ToList();
+            return allParks;
+        }
         [HttpGet("getParks")]
         public List<Datum> GetParks()
         {
-            allParks = ParkDAL.GetPark().data.ToList();
             return allParks;
         }
 

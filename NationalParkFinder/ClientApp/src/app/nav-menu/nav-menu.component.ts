@@ -2,6 +2,7 @@ import { GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/an
 import { Component, SimpleChange } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProfilePageComponent } from '../Component/profile-page/profile-page.component';
+import { Datum } from '../Model/park';
 import { UserProfile } from '../Model/user-profile';
 import { ParkService } from '../Service/park.service';
 import { UserProfileService } from '../Service/user-profile.service';
@@ -29,8 +30,13 @@ export class NavMenuComponent {
   user: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
   userProfile: UserProfile = {} as UserProfile;
+  loading:boolean = true;
 
   ngOnInit(): void {
+    this.parkService.getParksAPI().subscribe((response:Datum[])=>{
+      console.log(response)
+      this.loading = false;
+    })
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = user != null;
@@ -41,7 +47,6 @@ export class NavMenuComponent {
   }
  
   signIn() {
-    this.parkService.getParks();
     this.newUser.googleId = this.user.id;
     this.newUser.userName = this.user.firstName
     this.userService
