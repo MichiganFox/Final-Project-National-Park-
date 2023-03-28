@@ -15,10 +15,10 @@ export class AlertsComponent {
 constructor (private favoriteService : FavoritesService){}
 results: Datum[]=[];
 ngOnInit() : void{
- this.getAlerts()
+ this.getAlerts(this.userProfile.id)
 }
-  getAlerts():void{
-    this.favoriteService.getFavorites(this.userProfile.id).subscribe((response: Datum[])=>
+  getAlerts(id:number):void{
+    this.favoriteService.getFavorites(id).subscribe((response: Datum[])=>
 {
 console.log(response);
 this.results=response;

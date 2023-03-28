@@ -16,10 +16,10 @@ export class BadgesComponent {
   results: Badges[]=[];
 
   ngOnInit() : void {
-    
+    this.getBadges(this.userProfile.id)
   }
-  getBadges():void{
-    this.badgesService.getUserBadges(this.userProfile.id).subscribe((response:Badges[])=>{
+  getBadges(id:number):void{
+    this.badgesService.getUserBadges(id).subscribe((response:Badges[])=>{
       console.log(response);
       this.results=response;
     }

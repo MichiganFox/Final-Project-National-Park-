@@ -19,10 +19,10 @@ result:AdventureLog[]=[];
 @Input() profileUser : UserProfile={} as UserProfile;
 
 ngOnInit(): void {
-  this.getLogs();
+  this.getLogs(this.profileUser.id);
 }
-getLogs():void{
-  this.adventureLogService.GetAdventureLogs(this.profileUser.id).subscribe((response:AdventureLog[])=> {
+getLogs(id:number):void{
+  this.adventureLogService.GetAdventureLogs(id).subscribe((response:AdventureLog[])=> {
     console.log(response);
     this.result = response;
   });
