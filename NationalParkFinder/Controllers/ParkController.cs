@@ -7,20 +7,21 @@ namespace NationalParkFinder.Controllers
     [ApiController]
     public class ParkController : ControllerBase
     {
-        //public static List<Datum> allParks = ParkDAL.GetPark().data.ToList();
+        public static List<Datum> allParks = new List<Datum>();
         [HttpGet("getParks")]
         public List<Datum> GetParks()
         {
-            return ParkDAL.GetPark().data.ToList();
+            allParks = ParkDAL.GetPark().data.ToList();
+            return allParks;
         }
 
         [HttpGet("getParksByName")]
         public List<Datum> GetParksByName(string _parkName)
         {
-            Park allParks = ParkDAL.GetPark();
+            
             List<Datum> resultParks = new List<Datum>();
 
-            foreach (Datum d in allParks.data)
+            foreach (Datum d in allParks)
             {
                 if (d.fullName.ToLower().Trim().Contains(_parkName.ToLower().Trim()))
                 {
@@ -37,7 +38,7 @@ namespace NationalParkFinder.Controllers
         {
             string[] results = _allResults.Substring(0,_allResults.Length-1).Split(',');
            
-            List<Datum> allParks = ParkDAL.GetPark().data.ToList();
+            
             List<Datum> resultParks = new List<Datum>();
             foreach (Datum park in allParks)
             {

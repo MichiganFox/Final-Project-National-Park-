@@ -14,10 +14,9 @@ namespace NationalParkFinder.Controllers
         public List<Datum> getFavorites(int _userId)
         {
             List<Favorite> resultFavorites = dbContext.Favorites.Where(f=>f.UserId == _userId).ToList();
-            Park allParks = ParkDAL.GetPark();
             List<Datum> resultParks = new List<Datum>();
             
-                foreach (Datum d in allParks.data)
+                foreach (Datum d in ParkController.allParks)
                 {
                     foreach(Favorite f in resultFavorites)
                     {

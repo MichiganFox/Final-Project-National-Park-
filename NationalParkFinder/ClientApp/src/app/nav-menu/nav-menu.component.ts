@@ -3,6 +3,7 @@ import { Component, SimpleChange } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProfilePageComponent } from '../Component/profile-page/profile-page.component';
 import { UserProfile } from '../Model/user-profile';
+import { ParkService } from '../Service/park.service';
 import { UserProfileService } from '../Service/user-profile.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class NavMenuComponent {
     private authService: SocialAuthService,
     private userService: UserProfileService,
     private router:Router,
+    private parkService:ParkService,
   ) {}
   newUser: UserProfile = {} as UserProfile;
   
@@ -39,7 +41,9 @@ export class NavMenuComponent {
   }
  
   signIn() {
+    this.parkService.getParks();
     this.newUser.googleId = this.user.id;
+    this.newUser.userName = this.user.firstName
     this.userService
       .createUserProfile(this.newUser)
       .subscribe((response: UserProfile) => {
