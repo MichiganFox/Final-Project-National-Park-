@@ -1,7 +1,6 @@
 import { GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component, SimpleChange } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProfilePageComponent } from '../Component/profile-page/profile-page.component';
 import { Datum } from '../Model/park';
 import { UserProfile } from '../Model/user-profile';
 import { ParkService } from '../Service/park.service';

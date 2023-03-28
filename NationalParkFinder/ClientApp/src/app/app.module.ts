@@ -13,7 +13,6 @@ import { ParkFinderFormComponent } from './Component/park-finder-form/park-finde
 import { ProfilePageComponent } from './Component/profile-page/profile-page.component';
 import { AllAdventuresComponent } from './Component/all-adventures/all-adventures.component';
 import { SingleAdventureComponent } from './Component/single-adventure/single-adventure.component';
-import { FavoritesComponent } from './Component/favorites/favorites.component';
 import { SingleFavoriteComponent } from './Component/single-favorite/single-favorite.component';
 import { AlertsComponent } from './Component/alerts/alerts.component';
 import { SingleAlertComponent } from './Component/single-alert/single-alert.component';
@@ -38,7 +37,6 @@ import { WatchlistComponent } from './Component/watchlist/watchlist.component';
     ProfilePageComponent,
     AllAdventuresComponent,
     SingleAdventureComponent,
-    FavoritesComponent,
     SingleFavoriteComponent,
     AlertsComponent,
     SingleAlertComponent,
