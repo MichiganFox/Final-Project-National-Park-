@@ -56,6 +56,12 @@ namespace NationalParkFinder.Controllers
 
             return resultParks;
         }
-            
+
+        [HttpGet("getParksById")]
+        public Datum GetParksById(string _id)
+        {
+
+            return allParks.FirstOrDefault(d => d.id == _id);
+        }
     }
 }

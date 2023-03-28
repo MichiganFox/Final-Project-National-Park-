@@ -12,6 +12,7 @@ import { FavoritesService } from 'src/app/Service/favorites.service';
 export class SingleResultComponent implements OnInit {
   @Input() singleResult:Datum = {} as Datum;
   @Input() userProfile:UserProfile= {} as UserProfile;
+  @Input() i:number = {} as number;
 
   constructor(private favoriteService:FavoritesService) { }
 

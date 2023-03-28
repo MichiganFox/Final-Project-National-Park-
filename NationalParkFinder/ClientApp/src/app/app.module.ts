@@ -26,6 +26,7 @@ import { ListOfResultsComponent } from './Component/list-of-results/list-of-resu
 import { SingleResultComponent } from './Component/single-result/single-result.component';
 import { AdventureFormComponent } from './Component/adventure-form/adventure-form.component';
 import { WatchlistComponent } from './Component/watchlist/watchlist.component';
+import { ParkDetailsComponent } from './Component/park-details/park-details.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { WatchlistComponent } from './Component/watchlist/watchlist.component';
     ListOfResultsComponent,
     SingleResultComponent,
     AdventureFormComponent,
-    WatchlistComponent
+    WatchlistComponent,
+    ParkDetailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -59,6 +61,7 @@ import { WatchlistComponent } from './Component/watchlist/watchlist.component';
       {path: 'profileForm', component: ProfileFormComponent},
       {path: 'park', component: ParkFinderComponent},
       {path: 'profilePage', component: ProfilePageComponent},
+      {path: 'parkDetails/:id', component:ParkDetailsComponent}
     ])
   ],
   providers: [
