@@ -13,7 +13,8 @@ export class ParkFinderComponent {
   @Input() userProfile:UserProfile= {} as UserProfile;
     result:Datum []=[] 
     constructor (private parkService: ParkService){}
-  ngOnInit(): void { this.parkService.getParks().subscribe((response: Datum[])=>{
+  ngOnInit(): void { 
+    this.parkService.getParks().subscribe((response: Datum[])=>{
       console.log(response);
       this.result = response;
   })

@@ -16,6 +16,9 @@ export class BadgesComponent {
   results: Badges[]=[];
 
   ngOnInit() : void {
+    
+  }
+  getBadges():void{
     this.badgesService.getUserBadges(this.userProfile.id).subscribe((response:Badges[])=>{
       console.log(response);
       this.results=response;

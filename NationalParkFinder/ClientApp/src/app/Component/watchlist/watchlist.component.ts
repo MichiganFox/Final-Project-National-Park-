@@ -14,10 +14,13 @@ export class WatchlistComponent implements OnInit {
   constructor(private favoriteService:FavoritesService) { }
   result:Datum[]=[]
   ngOnInit(): void {
-    this.favoriteService.getFavorites(this.userProfile.id).subscribe((response:Datum[])=>{
+    this.getFavorites(this.userProfile.id);
+  }
+
+  getFavorites(id:number):void{
+    this.favoriteService.getFavorites(id).subscribe((response:Datum[])=>{
       console.log(response);
       this.result = response;
     });
   }
-
 }

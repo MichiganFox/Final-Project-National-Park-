@@ -20,7 +20,6 @@ result:AdventureLog[]=[];
 
 ngOnInit(): void {
   this.getLogs();
-
 }
 getLogs():void{
   this.adventureLogService.GetAdventureLogs(this.profileUser.id).subscribe((response:AdventureLog[])=> {

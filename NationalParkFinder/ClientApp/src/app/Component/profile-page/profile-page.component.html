@@ -18,7 +18,7 @@
 <button type="button" (click)="toggleDisplay5()" class="btn-danger btn-lg active" aria-pressed="true"><span class="glyphicon glyphicon-warning-sign"></span>  ALERTS</button>
 </div>
 
-<p *ngIf="display1"><app-watchlist [userProfile]="newUser"></app-watchlist>></p>
+<app-watchlist *ngIf="display1" [userProfile]="newUser"></app-watchlist>
 <div *ngIf="display2"><app-badges [userProfile]="newUser"></app-badges></div>
 <div *ngIf="display3"><app-park-finder [userProfile]="newUser"></app-park-finder></div>
 <p *ngIf="display4"><app-all-adventures [profileUser]="newUser"></app-all-adventures></p>

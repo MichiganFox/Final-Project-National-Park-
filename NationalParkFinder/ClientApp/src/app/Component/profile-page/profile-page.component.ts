@@ -1,9 +1,14 @@
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
-import { Component } from '@angular/core';
+import { Component, ViewChild, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserProfile } from 'src/app/Model/user-profile';
 import { UserProfileService } from 'src/app/Service/user-profile.service';
 import { NavMenuComponent } from 'src/app/nav-menu/nav-menu.component';
+import { WatchlistComponent } from '../watchlist/watchlist.component';
+import { BadgesComponent } from '../badges/badges.component';
+import { ParkFinderComponent } from '../park-finder/park-finder.component';
+import { AllAdventuresComponent } from '../all-adventures/all-adventures.component';
+import { AlertsComponent } from '../alerts/alerts.component';
 
 @Component({
   selector: 'app-profile-page',
@@ -19,7 +24,10 @@ export class ProfilePageComponent {
   ) {}
 
   newUser: UserProfile = {} as UserProfile;
-
+  @ViewChild(WatchlistComponent)watchList!:WatchlistComponent;
+  @ViewChild(BadgesComponent)badges!:BadgesComponent;
+  @ViewChild(AllAdventuresComponent)allAdventures!:AllAdventuresComponent;
+  @ViewChild(AlertsComponent)alerts!:AlertsComponent;
   user: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
 
@@ -35,7 +43,12 @@ export class ProfilePageComponent {
       .getUserProfile(this.user.id)
       .subscribe((response: UserProfile) => {
         console.log(response);
-        this.newUser =response;
+        this.newUser = response;
+        this.watchList.getFavorites(this.newUser.id);
+       /*  this.badges.getBadges(this.newUser.id);
+        this.allAdventures.getLogs(this.newUser.id);
+        this.alerts.getAlerts(this.newUser.id); */
+
       });
   }
 
