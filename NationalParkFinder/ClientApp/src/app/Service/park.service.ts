@@ -20,8 +20,8 @@ export class ParkService {
     return this.http.get<Datum[]>(`${this.baseUrl}api/Park/getParksByName?_parkName=${parkName}`);
    }
 
-   getParksByActivities(allResults: string):Observable<Datum[]>{
-    return this.http.get<Datum[]>(`${this.baseUrl}api/Park/getParksByActivities?_allResults=${allResults}`);
+   getParksByActivities(activities: string, selectedStates: string):Observable<Datum[]>{
+    return this.http.get<Datum[]>(`${this.baseUrl}api/Park/getParksByActivities?_allResults=${activities}&_selectedStates=${selectedStates}`);
    }
    
    getParksAPI():Observable<Datum[]>{

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using NationalParkFinder.Models;
 
 namespace NationalParkFinder.Controllers
@@ -40,18 +41,54 @@ namespace NationalParkFinder.Controllers
         }
 
         [HttpGet("getParksByActivities")]
-        public List<Datum> GetParksByActivities(string _allResults, string _stateResults)
+        public List<Datum> GetParksByActivities(string? _allResults, string? _selectedStates)
         {
-            string[] results = _allResults.Substring(0,_allResults.Length-1).Split(',');
-           
-            
             List<Datum> resultParks = new List<Datum>();
+            string[] states = new string[0];
+            string[] results = new string[0];
+           if(_allResults != null)
+            { 
+                results = _allResults.Substring(0, _allResults.Length - 1).Split(','); 
+            }
+            if (_selectedStates != null)
+            {
+                states = _selectedStates.Substring(0, _selectedStates.Length - 1).Split(",");
+            }
+                
+                        
             foreach (Datum park in allParks)
             {
+                
                 if (results.All(a => park.activities.Count(p => p.name.Trim().ToLower() == a.Trim().ToLower()) > 0))
-                {
-                    resultParks.Add(park);
+                { 
+                    if(states.Length > 0) 
+                    {
+                        foreach (string state in states)
+                        {
+                            if (park.states.Contains(state + ""))
+                            {
+                                resultParks.Add(park);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        resultParks.Add(park);
+                    }
+                  
                 }
+                
+                else if (results.Length == 0) 
+                {
+                    foreach (string state in states)
+                    {
+                        if (park.states.Contains(state))
+                        {
+                            resultParks.Add(park);
+                        }
+                    }
+                }
+                
             }
 
             return resultParks;
