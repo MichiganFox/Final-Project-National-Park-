@@ -40,7 +40,7 @@ namespace NationalParkFinder.Controllers
         }
 
         [HttpGet("getParksByActivities")]
-        public List<Datum> GetParksByActivities(string _allResults)
+        public List<Datum> GetParksByActivities(string _allResults, string _stateResults)
         {
             string[] results = _allResults.Substring(0,_allResults.Length-1).Split(',');
            
