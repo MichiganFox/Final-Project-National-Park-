@@ -57,17 +57,9 @@
               >Park Finder</a
             >
           </li>
-          <!-- <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/login']"
-              >login</a
-            > -->
-          <!-- </li> -->
         </ul>
       </div>
     </div>
-  <button class="btn btn-outline-dark" *ngIf="loggedIn" (click)="signOut()">
-    Sign Out
-  </button>
   <div *ngIf="loading==false"> <asl-google-signin-button
     *ngIf="!loggedIn"
     type="icon"
@@ -75,16 +67,20 @@
   ></asl-google-signin-button></div>
  
 
-  <div *ngIf="loggedIn">
+  <div *ngIf="loggedIn" style="margin:2rem;">
     <img src="{{ user.photoUrl }}">
     <div>
-    <h4>{{ newUser.userName }}</h4>
+    <h4 style="font-style:italic;color:#cacfcb;margin-top:0.5rem;">{{ newUser.userName }}</h4>
     </div>
+
+    <button class="btn btn-outline-dark" *ngIf="loggedIn" (click)="signOut()" style=" background-color: #cacfcb;font-size:1.25rem;border:none;">
+      Sign Out
+    </button>
   </div>
   
       
-    <p *ngIf="!loggedIn && loading==false">Log in for more tools</p>
-    <p *ngIf="!loggedIn && loading" >Loading</p> 
+    <p *ngIf="!loggedIn && loading==false" style="font-style:italic;font-size:1.35rem;line-height:1.6rem; margin:1.5rem;color:#cacfcb">Log in for <br> more tools</p>
+    <p *ngIf="!loggedIn && loading" style="font-style:italic;color:#cacfcb">Loading</p> 
   
   </nav>
 </header>
