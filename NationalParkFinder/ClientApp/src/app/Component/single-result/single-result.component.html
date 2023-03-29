@@ -7,35 +7,43 @@
 
   .card {
     overflow: hidden;
-    padding : 0px 0px;
-}
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    background-color:#edefed}
+
+  .bigger { font-size:150%; 
+  }
 
 </style>
 
-<div class="card" style="width: 15 rem">
+<div class="card" style="width: 15 rem;">
   
   <img *ngIf="getPicture()!=''" src="{{ getPicture() }}"  class="card-img-top" alt="..." />
-  <div class="results card-body">
+  <div class="results card-body" style="background-color: #edefed !important;">
     <a href="{{ singleResult.url }}"
-      ><h5 class="card-title">{{ singleResult.fullName }}</h5></a
+      ><h5 class="card-title" style="font-size:x-large; margin-bottom: 1rem;">{{ singleResult.fullName }}</h5></a
     >
-    <p class="results card-text">{{ singleResult.description }}</p>
+    <p class="results card-text" style="font-style:italic; color: #5d5f63; background-color: #cacfcb; padding-top:2rem; padding-bottom: 2rem;padding-left: 1rem; padding-right:1rem;">"{{ singleResult.description }}"</p>
   </div>
-  <button (click)="displayInfo=!displayInfo">Activities and Address</button>
+  <button (click)="displayInfo=!displayInfo" style="margin-bottom: 1rem; font-size:1.5rem; padding-bottom:.75rem; background-color:#a8b0a9;border-left: none; border-right:none;">Activities + Location  <span class="bigger">&#8964;</span></button>
   <div *ngIf="displayInfo">
   <ul class="list-group list-group-flush">
     <li class=" results list-group-item">
-      <p *ngFor="let a of singleResult.activities">{{ a.name }}</p>
+      <p *ngFor="let a of singleResult.activities" style="color:black; padding:0.5rem;">{{ a.name }}</p>
     </li>
-    <li class="results list-group-item">{{ singleResult.states }}</li>
-    <li class="results list-group-item"><p *ngFor="let a of singleResult.addresses">{{ a.line1 }} {{ a.line2 }} {{ a.line3 }} {{ a.city }} {{ a.stateCode }}</p></li>
+    <li class="results list-group-item" style="color:black;  background-color: #cacfcb;">{{ singleResult.states }}</li>
+    <li class="results list-group-item" style="color:black;  background-color: #cacfcb;"><p *ngFor="let a of singleResult.addresses">{{ a.line1 }} {{ a.line2 }} {{ a.line3 }} {{ a.city }} {{ a.stateCode }}</p></li>
     </ul>
   </div>
-  <div *ngIf="display">
-    Favorites:
-    <button *ngIf="isFavorited == false" (click)="addToFavorites()">☆</button>
-    <button *ngIf="isFavorited == true" (click)="removeFavorite()">★</button>
+  <div class="container" style="font-size:1.5rem;">
+    <div *ngIf="display" >
+      Favorite:
+      <button *ngIf="isFavorited == false" (click)="addToFavorites()" style="font-size:x-large;padding-left:1rem;padding-right:1rem;">☆</button>
+      <button *ngIf="isFavorited == true" (click)="removeFavorite()" style="font-size:x-large;padding-left:1rem;padding-right:1rem;">★</button>
+    </div>
+    <a routerLink="/parkDetails/{{singleResult.id}}">More Info</a>
   </div>
-  <a routerLink="/parkDetails/{{singleResult.id}}">More Info</a>
+  
+  
 </div>
 
