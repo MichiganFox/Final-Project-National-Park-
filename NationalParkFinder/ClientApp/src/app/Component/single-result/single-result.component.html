@@ -22,6 +22,6 @@
     <button *ngIf="isFavorited == false" (click)="addToFavorites()">☆</button>
     <button *ngIf="isFavorited == true" (click)="removeFavorite()">★</button>
   </div>
-
+  <a routerLink="/parkDetails/{{singleResult.id}}">More Info</a>
 </div>
 
