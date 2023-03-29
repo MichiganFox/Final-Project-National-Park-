@@ -1,19 +1,20 @@
 <div class="card" >
     <ul class="list-group list-group-flush" >
+      <p style="font-size:1.5rem;padding-left:1rem;padding-right:1rem;font-style:italic;padding-top:1rem;">Create a new Adventure Log</p>
         <li class="list-group-item" *ngIf="incorrectData">Please ensure all blanks are filled and a park is submitted.</li>
-      <li class="list-group-item">Search Parks
+      <li class="list-group-item">Park Name<br>
         <input type="text" [(ngModel)]="result" />
            <button (click)="searchByName()">Search</button>
            <div *ngFor="let p of parkResult">
                <input type="radio" id="{{p.id}}" name="SelectPark" [value]="p.id" [(ngModel)]="adventureLog.parkId">
                <label for="{{p.id}}">{{p.fullName}}</label>
            </div></li>
-      <li class="list-group-item">Entry Title:
+      <li class="list-group-item">Title:<br>
         <input type="text" [(ngModel)]="adventureLog.title"/></li>
-      <li class="list-group-item">Enter Details:
-        <input type="text" [(ngModel)]="adventureLog.details"/>  </li>
-      <li class="list-group-item">Give it Stars:
+      <li class="list-group-item">Entry:<br>
+        <input type="text" [(ngModel)]="adventureLog.details" style="height:12rem;"/>  </li>
+      <li class="list-group-item">Rating:
         <input type="number" min="1" max="5" [(ngModel)]="adventureLog.rating"/></li>
-      <li class="list-group-item" ><button (click)="NewEntry()">Add Entry</button></li>
+      <li class="list-group-item" ><button (click)="NewEntry()" >Create</button></li>
     </ul>
   </div>

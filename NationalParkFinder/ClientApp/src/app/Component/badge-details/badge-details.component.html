@@ -1,6 +1,6 @@
 <div class="card">
-    <div class="card-body; text-center">
-      <h1>My Adventure Badges</h1>
+    <div class="card-body; text-center" style="background-color: #cacfcb;padding:1.5rem;">
+      <h1 style="color:#5d5f63;">My Adventure Badges</h1>
     </div>
   </div>
   <br>
@@ -8,9 +8,9 @@
   <div *ngFor="let badge of userBadges" class="col-sm-3" width="50px">
     <div class="card">
       <div class="card-body; text-center">
-        <h3>{{ badge.name }}</h3>
+        <h3 style="padding:1rem;">{{ badge.name }}</h3>
         <img src="{{ badge.badgeImg }}" />
-        <p>{{ badge.desciption }}</p>
+        <p style="padding:1rem;font-style:italic;">{{ badge.desciption }}</p>
       </div>
     </div>
   </div>
@@ -21,10 +21,10 @@
 <div class="row">
 <div *ngFor="let i of [1,2,3,4]" class="col-sm-3">
   <div class="card">
-    <div class="card-body; text-center">
-      <h3>Badge will release soon!</h3>
+    <div class="card-body; text-center" >
+      <h3 style="margin:1.5rem">New badge coming soon</h3>
       <img src="https://www.roadtrafficsigns.com/img/lg/K/Wait-Traffic-Sign-K-7650.gif" width="50px"/>
-      <p>Coming soon!</p>
+      <p style="margin:1rem;">Stay tuned</p>
     </div>
   </div>
 </div>
