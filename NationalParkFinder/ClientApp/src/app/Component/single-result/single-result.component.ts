@@ -19,6 +19,7 @@ export class SingleResultComponent implements OnInit {
   singleFavorite: Favorites = {} as Favorites;
   isFavorited:boolean = false;
   display:boolean=false;
+  displayInfo:boolean=false;
 
   addToFavorites(){
     this.isFavorited = true;
