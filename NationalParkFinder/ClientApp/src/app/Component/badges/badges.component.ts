@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Badges } from 'src/app/Model/badges';
 import { UserProfile } from 'src/app/Model/user-profile';
 import { BadgesService } from 'src/app/Service/badges.service';
