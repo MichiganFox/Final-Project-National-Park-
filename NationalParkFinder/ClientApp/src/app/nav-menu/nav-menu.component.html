@@ -3,10 +3,11 @@
   style="background-color: #516154;"
   class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3"
   >
-    <div style="color: rgb(246, 226, 203); background-color: #516154;"
-    class="container">
-    <img src="assets/Images/navImg.png" width="200"/>
-      <a class="navbar-brand" [routerLink]="['/']"></a>
+    <div style="color: rgb(246, 226, 203); background-color: #516154;" class="container">
+      
+    <img src="assets/Images/navImg.png" width="200" [routerLink]="['home']"/>
+      <!-- <a class="navbar-brand" [routerLink]="['']"> <img src="assets/Images/navImg.png" width="200"/></a> -->
+
       <button
         class="navbar-toggler"
         type="button"
@@ -23,20 +24,14 @@
         [ngClass]="{ show: isExpanded }"
       >
         <ul class="navbar-nav flex-grow">
-          <li
-            class="nav-item"
-            [routerLinkActive]="['link-active']"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
-          </li>
+          
           <li class="nav-item" *ngIf="loggedIn" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/profilePage']"
-              >Profile Page</a>
+              >My AF</a>
           </li>
           <li class="nav-item" *ngIf="loggedIn" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/profileForm']"
-              >Profile Settings</a>
+              >Manage Profile</a>
           </li>
           <li class="nav-item" *ngIf="loggedIn == false && loading==false" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/park']"
@@ -69,8 +64,8 @@
   </div>
   
       
-    <p *ngIf="!loggedIn && loading==false">Log in for more functions</p>
-    <p *ngIf="!loggedIn && loading" >Loading in progress</p> 
+    <p *ngIf="!loggedIn && loading==false">Log in for more tools</p>
+    <p *ngIf="!loggedIn && loading" >Loading</p> 
   
   </nav>
 </header>

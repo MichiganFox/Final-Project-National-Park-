@@ -59,6 +59,7 @@ import { WatchlistComponent } from './Component/watchlist/watchlist.component';
       {path: 'profileForm', component: ProfileFormComponent},
       {path: 'park', component: ParkFinderComponent},
       {path: 'profilePage', component: ProfilePageComponent},
+      {path: 'home', component: HomeComponent}
     ])
   ],
   providers: [

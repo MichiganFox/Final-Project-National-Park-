@@ -1,3 +1,33 @@
-<p>{{singleBadges.name}}</p>
-<img src="{{singleBadges.badgeImg}}">
-<p>{{singleBadges.desciption}}</p>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* div {
+        padding-right: 1rem;
+        padding-left: 1rem;
+      } */
+
+      .center {
+        margin: auto;
+      }
+
+      img {
+        width: 75px;
+        object-fit: contain;
+      }
+
+      .container{
+                text-align: center;
+                vertical-align: middle;
+            }
+    </style>
+  </head>
+
+  <body>
+    <div class="container" style="justify-content: center;">
+      <img src="{{ singleBadges.badgeImg }}" />
+      <p style="font-style:italic; color: #959595; line-height: 1; padding-top: 1rem; padding-bottom: 2rem; font-size: 1rem;">{{ singleBadges.name }}</p>
+    </div>
+  </body>
+</html>

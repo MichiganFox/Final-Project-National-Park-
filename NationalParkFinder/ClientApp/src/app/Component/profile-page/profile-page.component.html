@@ -1,20 +1,72 @@
-
-
-<div class="body btn-toolbar text-center">
-<button type="button" (click)="toggleDisplay1()" class="buttons btn-lg active" aria-pressed="true">
-    <span class="glyphicon glyphicon-eye-open"></span> Watchlist</button>
-<div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div> 
-<button type="button" (click)="toggleDisplay2()" class="buttons btn-lg active" aria-pressed="true"><span class="glyphicon glyphicon-globe"></span>  badges</button>
-<div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div> 
-<button type="button" (click)="toggleDisplay3()" class="buttons btn-lg active" aria-pressed="true"><span class="glyphicon glyphicon-search"></span>  Park Finder</button>
-<div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div> 
-<button type="button" (click)="toggleDisplay4()" class="buttons btn-lg active" aria-pressed="true"><span class="glyphicon glyphicon-tree-conifer"></span>  Adventure Log</button>
-<div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div> 
-<button type="button" (click)="toggleDisplay5()" class="alertbttn btn-lg active" aria-pressed="true"><span class="glyphicon glyphicon-warning-sign"></span>  ALERTS</button>
+<br>
+<div class="row">
+    <div class="col-11">
+        <div class="body btn-toolbar text-center" style="justify-content: space-between">
+            <button
+              type="button"
+              (click)="toggleDisplay1()"
+              class="buttons btn-lg active"
+              aria-pressed="true"
+            >
+              <span class="glyphicon glyphicon-eye-open"></span> Watchlist
+            </button>
+      
+            <button
+              type="button"
+              (click)="toggleDisplay2()"
+              class="buttons btn-lg active"
+              aria-pressed="true"
+            >
+              <span class="glyphicon glyphicon-globe"></span> Badges
+            </button>
+      
+            <button
+              type="button"
+              (click)="toggleDisplay3()"
+              class="buttons btn-lg active"
+              aria-pressed="true"
+            >
+              <span class="glyphicon glyphicon-search"></span> Park Finder
+            </button>
+      
+            <button
+              type="button"
+              (click)="toggleDisplay4()"
+              class="buttons btn-lg active"
+              aria-pressed="true"
+            >
+              <span class="glyphicon glyphicon-tree-conifer"></span> Adventure Log
+            </button>
+      
+            <button
+              type="button"
+              (click)="toggleDisplay5()"
+              class="alertbttn btn-lg active"
+              aria-pressed="true"
+            >
+              <span class="glyphicon glyphicon-warning-sign"></span> ALERTS
+            </button>
+        </div>
+      
+        <div class="container">
+          <app-watchlist *ngIf="display1" [userProfile]="newUser"></app-watchlist>
+          <div *ngIf="display2">
+            <br>
+            <app-badges [userProfile]="newUser"></app-badges>
+          </div>
+          <div *ngIf="display3">
+            <br>
+            <app-park-finder [userProfile]="newUser"></app-park-finder>
+          </div>
+          <p *ngIf="display4">
+            <br>
+            <app-all-adventures [profileUser]="newUser"></app-all-adventures>
+          </p>
+          <p *ngIf="display5"><app-alerts [userProfile]="newUser"></app-alerts></p>
+        </div>
+      </div>
+        <div class="col-1" style="padding-top: 5rem">
+          <app-badges></app-badges>
+        </div>
+      
 </div>
-
-<app-watchlist *ngIf="display1" [userProfile]="newUser"></app-watchlist>
-<div *ngIf="display2"><app-badges [userProfile]="newUser"></app-badges></div>
-<div *ngIf="display3"><app-park-finder [userProfile]="newUser"></app-park-finder></div>
-<p *ngIf="display4"><app-all-adventures [profileUser]="newUser"></app-all-adventures></p>
-<p *ngIf="display5"><app-alerts [userProfile]="newUser"></app-alerts></p>
