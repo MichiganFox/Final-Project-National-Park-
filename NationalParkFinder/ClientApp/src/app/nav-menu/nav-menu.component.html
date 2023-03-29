@@ -1,3 +1,23 @@
+<style>
+  a:link, a:visited {
+    background-color: #cacfcb;
+    /* background-color: black; */
+    /* color:  rgb(246, 226, 203) !important; */
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    border-radius: 5%;
+    text-align: center;
+    font-size: large;
+    text-decoration: none;
+    margin: 1rem;
+  }
+  
+  a:hover, a:active {
+    background-color: #edefed;
+    color: #fff4df;
+  }
+  </style>
+
 <header style=" background-color: #516154;">
   <nav
   style="background-color: #516154;"
@@ -5,8 +25,7 @@
   >
     <div style="color: rgb(246, 226, 203); background-color: #516154;" class="container">
       
-    <img src="assets/Images/navImg.png" width="200" [routerLink]="['home']"/>
-      <!-- <a class="navbar-brand" [routerLink]="['']"> <img src="assets/Images/navImg.png" width="200"/></a> -->
+    <img src="assets/Images/navImg.png" width="200" [routerLink]="['']" style="cursor:pointer"/>
 
       <button
         class="navbar-toggler"
@@ -27,13 +46,13 @@
           
           <li class="nav-item" *ngIf="loggedIn" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/profilePage']"
-              >My AF</a>
+              > My AF</a>
           </li>
           <li class="nav-item" *ngIf="loggedIn" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/profileForm']"
               >Manage Profile</a>
           </li>
-          <li class="nav-item" *ngIf="loggedIn == false && loading==false" [routerLinkActive]="['link-active']">
+          <li class="nav-item" *ngIf="loggedIn == false && loading==false" [routerLinkActive]="['link-active']" style="border-width:2px">
             <a class="nav-link text-dark" [routerLink]="['/park']"
               >Park Finder</a
             >
