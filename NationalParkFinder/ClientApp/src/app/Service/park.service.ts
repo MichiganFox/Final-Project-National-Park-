@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AdventureLog } from '../Model/adventure-log';
 import { Datum, Park } from '../Model/park';
 
 
@@ -27,7 +28,10 @@ export class ParkService {
    getParksAPI():Observable<Datum[]>{
     return this.http.get<Datum[]>(`${this.baseUrl}api/Park/getParksAPI?limit=496`);
    }
-   getParksById(id:string):Observable<Datum>{
-    return this.http.get<Datum>(`${this.baseUrl}api/Park/getParksById?_id=${id}`);
+   getParkById(id:string):Observable<Datum>{
+    return this.http.get<Datum>(`${this.baseUrl}api/Park/getParkById?_id=${id}`);
+   }
+   getParksById(adventureLogs:AdventureLog[]):Observable<Datum[]>{
+    return this.http.get<Datum[]>(`${this.baseUrl}api/Park/getParksById?_adventureLogs=${adventureLogs}`);
    }
   }

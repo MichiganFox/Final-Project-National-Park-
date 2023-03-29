@@ -17,7 +17,7 @@ export class ParkDetailsComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     let id:string = String(routeParams.get("id"));
     console.log(id);
-    this.parkService.getParksById(id).subscribe((response:Datum)=>{
+    this.parkService.getParkById(id).subscribe((response:Datum)=>{
       this.displayPark=response
     });
 

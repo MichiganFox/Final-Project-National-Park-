@@ -94,11 +94,24 @@ namespace NationalParkFinder.Controllers
             return resultParks;
         }
 
-        [HttpGet("getParksById")]
-        public Datum GetParksById(string _id)
+        [HttpGet("getParkById")]
+        public Datum GetParkById(string _id)
         {
 
             return allParks.FirstOrDefault(d => d.id == _id);
+        }
+        [HttpGet("getParksById")]
+        public List<Datum> GetParksById(List<AdventureLog> _adventureLogs)
+        {
+            List<Datum> resultParks = new List<Datum>();
+            foreach(Datum park in allParks)
+            {
+                if(_adventureLogs.Any(a=>a.ParkId==park.id))
+                {
+                    resultParks.Add(park);
+                }
+            }
+            return resultParks;
         }
     }
 }
