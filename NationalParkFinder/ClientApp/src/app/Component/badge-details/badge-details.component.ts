@@ -23,6 +23,8 @@ export class BadgeDetailsComponent implements OnInit {
   user: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
   userBadges: Badges[]= [];
+  nonExistentBadges:number = 10;
+
   ngOnInit(): void {
     this.authService.authState.subscribe((user) => {
       this.user = user;

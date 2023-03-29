@@ -1,22 +1,19 @@
- <h1 *ngIf="incorrectData">Please ensure all blanks are filled and a park is submitted.</h1>
- 
- <p>Search Parks</p>
- <input type="text" [(ngModel)]="result" />
-    <button (click)="searchByName()">Search</button>
-    <div *ngFor="let p of parkResult">
-        <input type="radio" id="{{p.id}}" name="SelectPark" [value]="p.id" [(ngModel)]="adventureLog.parkId">
-        <label for="{{p.id}}">{{p.fullName}}</label>
-    </div>
-   
-
-    <p>Entry Title:</p>
-<input type="text" [(ngModel)]="adventureLog.title"/>
-    <p>Enter Details:</p>
-    <input type="text" [(ngModel)]="adventureLog.details"/>  
-<p>Give it Stars:</p>
-<input type="number" min="1" max="5" [(ngModel)]="adventureLog.rating"/>
-
-<button (click)="NewEntry()">Add Entry</button>
-
-   
- 
+<div class="card" >
+    <ul class="list-group list-group-flush" >
+        <li class="list-group-item" *ngIf="incorrectData">Please ensure all blanks are filled and a park is submitted.</li>
+      <li class="list-group-item">Search Parks
+        <input type="text" [(ngModel)]="result" />
+           <button (click)="searchByName()">Search</button>
+           <div *ngFor="let p of parkResult">
+               <input type="radio" id="{{p.id}}" name="SelectPark" [value]="p.id" [(ngModel)]="adventureLog.parkId">
+               <label for="{{p.id}}">{{p.fullName}}</label>
+           </div></li>
+      <li class="list-group-item">Entry Title:
+        <input type="text" [(ngModel)]="adventureLog.title"/></li>
+      <li class="list-group-item">Enter Details:
+        <input type="text" [(ngModel)]="adventureLog.details"/>  </li>
+      <li class="list-group-item">Give it Stars:
+        <input type="number" min="1" max="5" [(ngModel)]="adventureLog.rating"/></li>
+      <li class="list-group-item" ><button (click)="NewEntry()">Add Entry</button></li>
+    </ul>
+  </div>

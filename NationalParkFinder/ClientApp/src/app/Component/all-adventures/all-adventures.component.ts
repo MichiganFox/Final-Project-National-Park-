@@ -12,19 +12,29 @@ import { UserProfileService } from 'src/app/Service/user-profile.service';
   styleUrls: ['./all-adventures.component.css']
 })
 export class AllAdventuresComponent {
-constructor (private adventureLogService: AdventureLogService, private userProfileService: UserProfileService){}
+constructor (private adventureLogService: AdventureLogService, private userProfileService: UserProfileService, private parkService:ParkService){}
 result:AdventureLog[]=[];
 
 
 @Input() profileUser : UserProfile={} as UserProfile;
-
+displayParks:Datum[]=[];
 ngOnInit(): void {
-  this.getLogs(this.profileUser.id);
+  if(this.profileUser != null){
+    this.getLogs(this.profileUser.id);
+  }
+  
 }
 getLogs(id:number):void{
   this.adventureLogService.GetAdventureLogs(id).subscribe((response:AdventureLog[])=> {
     console.log(response);
     this.result = response;
+    this.getParksByID(this.result) 
+
+  });
+}
+getParksByID(id:AdventureLog[]){
+  this.parkService.getParksById(id).subscribe((response:Datum[])=>{
+    this.displayParks=response
   });
 }
 }
