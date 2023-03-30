@@ -10,6 +10,7 @@ import { ParkService } from 'src/app/Service/park.service';
 })
 export class ParkDetailsComponent implements OnInit {
 
+
   constructor(private route:ActivatedRoute, private parkService:ParkService) { }
 
   displayPark:Datum = {} as Datum;

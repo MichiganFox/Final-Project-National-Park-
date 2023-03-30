@@ -1,8 +1,26 @@
-<p>{{displayPark.fullName}}</p>
-<img src="https://www.lawrenceprospera.org/images/quintana/Page_Under_Construction.jpg">
-<!-- <div class="card col-3">
-    <div class="card-body alertspage">
-        <p *ngFor="let activity of displayPark.activities">{{activity.name}}</p>
-    </div>
-  </div>
- -->
+<!-- <p>{{displayPark.fullName}}</p> -->
+<!-- <img src="https://www.lawrenceprospera.org/images/quintana/Page_Under_Construction.jpg"> -->
+
+<app-single-result [singleResult]="displayPark"></app-single-result>
+
+
+<p *ngFor="let a of displayPark.operatingHours">{{a.name}} {{a.description}}</p>
+<p>Weather Information:  {{displayPark.weatherInfo}}</p>
+<p>Directions: {{displayPark.directionsInfo}}</p>
+
+<div *ngFor="let a of displayPark.contacts">
+    <p *ngFor="let b of a.phoneNumbers">{{b.phoneNumber}}</p>
+    <p *ngFor="let c of a.emailAddresses">{{c.emailAddress}} {{c.description}}</p>
+</div>
+<div *ngFor="let entrance of displayPark.entranceFees">
+    <h3>Title:  {{entrance.title}}</h3>
+    <p>Entrance Cost:  {{entrance.cost}} </p>
+    <p>Descirption:  {{entrance.description}}</p>
+   
+</div>
+<div *ngFor="let entrance of displayPark.entrancePasses">
+    <h3>Title:  {{entrance.title}}</h3>
+    <p>Entrance Cost:  {{entrance.cost}} </p>
+    <p>Descirption:  {{entrance.description}}</p>
+   
+</div>
